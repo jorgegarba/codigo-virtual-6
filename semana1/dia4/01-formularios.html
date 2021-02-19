@@ -19,7 +19,7 @@
         <legend>Datos personales</legend>
         <div>
           <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" placeholder="Ejm: Carla" />
+          <input type="text" id="nombre" placeholder="Ejm: Carla" required />
         </div>
         <div>
           <label for="apellido">Apellido:</label>
@@ -27,7 +27,7 @@
         </div>
         <div>
           <label for="edad">Edad:</label>
-          <input type="number" id="edad" placeholder="Ejm: 25">
+          <input type="number" min="17" id="edad" placeholder="Ejm: 25" required>
         </div>
         <div>
           <label for="correo">Correo electrónico:</label>
@@ -84,7 +84,7 @@
             <option value="4">Colombia</option>
           </select>
         </div>
-        
+
         <div>
           <button type="submit">Crear Cuenta</button>
           <button type="button">Cancelar</button>
