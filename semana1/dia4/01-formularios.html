@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Formularios en HTML</h1>
+  </header>
+  <main>
+    <form action="destino.html">
+      <fieldset>
+        <legend>Datos personales</legend>
+        <div>
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" placeholder="Ejm: Carla" />
+        </div>
+        <div>
+          <label for="apellido">Apellido:</label>
+          <input type="text" id="apellido" placeholder="Ejm: Palacios">
+        </div>
+        <div>
+          <label for="edad">Edad:</label>
+          <input type="number" id="edad" placeholder="Ejm: 25">
+        </div>
+        <div>
+          <label for="correo">Correo electrónico:</label>
+          <input type="email" id="correo" placeholder="Ejm: carla@gmail.com">
+        </div>
+        <div>
+          <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+          <input type="date" id="fecha_nacimiento">
+        </div>
+        <div>
+          <label for="color_ojos">Color de ojos:</label>
+          <input type="color" id="color_ojos">
+        </div>
+        <div>
+          <label for="">Elija Género:</label>
+          <br />
+          <label for="mujer">Mujer</label>
+          <input type="radio" value="0" id="mujer" name="radio_genero">
+          <label for="varon">Varón</label>
+          <input type="radio" value="1" id="varon" name="radio_genero">
+          <label for="otro_genero">Otro</label>
+          <input type="radio" value="2" id="otro_genero" name="radio_genero">
+        </div>
+        <div>
+          <label for="">Seleccione Lenguajes de Programación:</label>
+          <br />
+          <label for="check_js">JavaScript:</label>
+          <input type="checkbox" id="check_js" name="check_js" value="js">
+
+          <label for="check_py">Python:</label>
+          <input type="checkbox" id="check_py" name="check_py" value="py">
+
+          <label for="check_ts">TypeScript:</label>
+          <input type="checkbox" id="check_ts" name="check_ts" value="ts">
+
+        </div>
+
+        <div>
+          <label for="cv">Subir Curriculum:</label>
+          <input type="file" id="cv" name="cv">
+        </div>
+
+        <div>
+          <label for="exp">Escribr su experiencia laboral:</label>
+          <textarea name="exp" id="exp" cols="30" rows="5" maxlength="20"></textarea>
+        </div>
+
+        <div>
+          <label for="select_pais">Seleccione País</label>
+          <select name="select_pais" id="select_pais">
+            <option value="1">Perú</option>
+            <option value="2">Argentina</option>
+            <option value="3">Chile</option>
+            <option value="4">Colombia</option>
+          </select>
+        </div>
+        
+        <div>
+          <button type="submit">Crear Cuenta</button>
+          <button type="button">Cancelar</button>
+          <button type="reset">Limpiar campos</button>
+        </div>
+
+      </fieldset>
+    </form>
+  </main>
+
+</body>
+
+</html>
