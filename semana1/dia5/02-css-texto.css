@@ -1,0 +1,26 @@
+
+body{
+  background-color: #444;
+  color: white;
+}
+
+.header__titulo{
+  /*tipo de letra*/
+  font-family: cursive, sans-serif
+}
+
+.main__titulo{
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+}
+
+.main__parrafo{
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-style: italic;
+}
+.main__parrafo + p{
+  /*shorthand properties: propiedades que combinan varias en una sola*/
+  /*font: font-style font-weight font-size font-family*/
+  font: normal 500 14px "Raleway", sans-serif;
+}
