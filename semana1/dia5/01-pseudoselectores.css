@@ -1,0 +1,26 @@
+/* :link links no visitados */
+.nav_link:link{
+  color: darkgreen;
+}
+/* :visited links visitados*/
+.nav_link:visited{
+  color: dodgerblue;
+}
+/* :active cuando un elemento es clickado
+(exactamente cuando el click está presionado)*/
+.nav_link:active{
+  color: brown;
+}
+
+.btn_guardar{
+  border: none;
+  outline: none;
+  background-color: indigo;
+  color: white;
+  padding: 10px;  
+}
+
+.btn_guardar:active{
+  transform: translate(0,2px) scale(0.96);
+  box-shadow: 0px 2px 10px #555;
+}

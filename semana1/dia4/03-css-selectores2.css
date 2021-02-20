@@ -37,3 +37,52 @@ a {
 }
 
 
+.boton_navegacion{
+  text-decoration: none;
+  font-family: cursive;
+  color: yellow;
+}
+
+button.boton_navegacion{
+  /*Todas las etiquetas "button" que tengan
+  la clase "boton_navegacion"*/
+  color: royalblue;
+}
+
+.boton_navegacion.activo{
+  box-shadow: #aaa 0px 0px 20px;
+}
+
+#miFooter{
+  background-color: #ccc;
+}
+
+article p{
+  /*Todos los párrafos que estén como hijos
+  o nietos o bisnietos, etc de un "article"*/
+  color: #444;
+  text-indent: 10px;
+}
+
+section > p{
+  /*todos los parrafos que sean hijos
+  directos en primer nivel de un section*/
+  font-size: 13px;
+  color: #bbb;
+}
+
+.publicidad_imagen + figcaption{
+  /*El figcaption proximo directo que sea hermano directo
+  de un elemento con clase .publicidad_imagen
+  OJO: Ese figcaption debe ser un hermano inferior*/
+  font-style: italic;
+  font-size: 12px;
+}
+
+#miFooter a ~ button{
+  /*Todos los button que sean hermanos siguientes
+   de a y estos, hijos de un elemento de id
+  #miFooter*/
+  border-radius: 6px;
+  background-color: salmon;
+}
