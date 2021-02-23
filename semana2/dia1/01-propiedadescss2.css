@@ -1,0 +1,28 @@
+.header__title {
+	text-align: center;
+	/* Es el color del texto NO de fondo */
+	color: #444444;
+}
+
+body {
+	background-color: lightcoral;
+}
+
+.subtitulo {
+	color: rgb(200, 50, 0);
+}
+
+.cuadrado {
+	width: 200px;
+	height: 200px;
+	background-color: rgba(0, 255, 255, 0.4);
+}
+.cuadrado:nth-child(2) {
+	background-color: #00cccc;
+}
+.cuadrado:nth-child(3) {
+	background-color: #009999;
+}
+.cuadrado:nth-child(4) {
+	background-color: #006666;
+}

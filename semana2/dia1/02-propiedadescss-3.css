@@ -1,0 +1,43 @@
+body {
+	background-color: #222;
+	color: #eee;
+}
+h1 {
+	width: 600px;
+	text-align: center;
+	background-color: #333;
+}
+
+h2 {
+	width: 300px;
+	text-align: center;
+	background-color: #444;
+}
+
+main > span {
+	background-color: #555;
+	/*A los elementos inline,
+  no se les puede settear width ni height*/
+	width: 500px;
+}
+.parrafo1 {
+	width: 600px;
+	height: 80px;
+	background-color: #333;
+  padding: 20px;
+	/*Controlar el exceso del tamaño del
+  contenido interno del elemento*/
+	/* overflow-x: hidden; */
+	overflow-y: scroll;
+}
+/* .parrafo1::-webkit-scrollbar {
+	background-color: lightcoral;
+} */
+
+section {
+	background-color: #444;
+	padding: 50px;
+}
+section h3 {
+	border: 1px solid yellow;
+}
