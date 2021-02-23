@@ -1,0 +1,11 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.header {
+	height: 60px;
+  box-shadow: 0px 4px 12px #bbb;
+}
+
