@@ -1,3 +1,10 @@
+* {
+	/*Reglas del reseteo o reset CSS*/
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
 	background-color: #222;
 	color: #eee;
@@ -6,6 +13,7 @@ h1 {
 	width: 600px;
 	text-align: center;
 	background-color: #333;
+	margin-bottom: 10px;
 }
 
 h2 {
@@ -24,7 +32,7 @@ main > span {
 	width: 600px;
 	height: 80px;
 	background-color: #333;
-  padding: 20px;
+	padding: 20px;
 	/*Controlar el exceso del tamaño del
   contenido interno del elemento*/
 	/* overflow-x: hidden; */
