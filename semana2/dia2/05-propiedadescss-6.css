@@ -33,6 +33,7 @@ body {
 
 .card {
 	box-shadow: inset 0px 0px 20px #aaa;
+	overflow: hidden;
 }
 main {
 	padding-left: 100px;
@@ -56,6 +57,16 @@ main {
 }
 figure {
 }
+
 img {
+	filter: blur(5px) grayscale(1);
 	max-width: 100%;
+	transition: all 0.3s ease-in;
+}
+
+.card:hover img {
+	/*Quien modifica si valor es la img
+	cuando se pasa el mouse por encima del .card*/
+	filter: blur(0) grayscale(1);
+	transform: translate(0, -15px) scale(0.9) rotate(15deg);
 }
