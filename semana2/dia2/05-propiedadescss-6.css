@@ -3,9 +3,59 @@
 	box-sizing: border-box;
 	padding: 0;
 }
+body {
+	background-color: #ececec;
+}
 
 .header {
 	height: 60px;
-  box-shadow: 0px 4px 12px #bbb;
+	box-shadow: 0px 4px 12px #bbb;
+	background-color: white;
+	margin-bottom: 50px;
 }
 
+.formulario,
+.card {
+	background-color: white;
+	width: 400px;
+	height: 500px;
+	margin: 100px auto 0 auto;
+	box-shadow: 0px 0px 20px #aaa;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	transition: all 0.5s ease-out;
+	cursor: pointer;
+}
+
+.formulario:hover {
+	box-shadow: 0px 0px 7px #aaa;
+}
+
+.card {
+	box-shadow: inset 0px 0px 20px #aaa;
+}
+main {
+	padding-left: 100px;
+}
+.btn-neo {
+	background-color: #ececec;
+	border: none;
+	outline: none;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background: linear-gradient(145deg, #fdfdfd, #d4d4d4);
+	box-shadow: 8px 8px 16px #afafaf, -8px -8px 16px #ffffff;
+	cursor: pointer;
+	transition: all 0.5s ease-in;
+}
+
+.btn-neo:hover {
+	background: linear-gradient(145deg, #d4d4d4, #fdfdfd);
+	box-shadow: 8px 8px 16px #afafaf, -8px -8px 16px #ffffff;
+}
+figure {
+}
+img {
+	max-width: 100%;
+}
