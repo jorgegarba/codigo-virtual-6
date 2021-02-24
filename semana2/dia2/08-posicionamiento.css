@@ -1,0 +1,61 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+body {
+	background-color: #222;
+}
+
+.cuadrado {
+	height: 150px;
+	width: 150px;
+	border: 1px solid red;
+}
+.cuadrado:nth-child(1) {
+	position: relative;
+	/*position:relative =>Prepara al elemento para que esté
+  disponible para empezar a moverse o cambiar su posición*/
+	/*Sólo se puede mover desde TOP o LEFT*/
+	/*Si un elemento relativo se mueve, su espacio inicial
+  se respeta y nadie más lo ocupa*/
+	top: 10px;
+	left: calc(100% - 150px);
+}
+.cuadrado:nth-child(2) {
+	position: relative;
+	border: 1px solid yellow;
+	left: 50%;
+	/*left: 50% toma el 50% del ancho del padre o 
+  del ancho disponible*/
+	transform: translate(-50%, 0);
+	/*translate(50%,0) toma el 50% del ancho del elemento(de sí mismo)*/
+}
+
+.padre_absoluto {
+	border: 1px solid white;
+  position: relative;
+}
+
+.hijo_absoluto {
+	/*Cuando se usa la posición "absoluta" es necesarioa indicar al menos
+  2 anclas para que el elemento se mueva (TOP, BOTTOM, RIGHT Y/O LEFT)*/
+  /*Su ancla en top:0 no respeta a su elemento padre si el padre
+  no tiene un sistema de posicionamiento establecido.*/
+  /*Lo recomendable para un elemento absoluto, es que su padre
+  tenga posicionamiento relativo*/
+  /*Los elementos hermanos, ocupan la posición de un elemento absoluto*/
+	width: 150px;
+	height: 150px;
+	border: 1px solid pink;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.hijo_relativo {
+	width: 150px;
+	height: 150px;
+	border: 1px solid green;
+	/* top: 0;
+  left: 0; */
+}

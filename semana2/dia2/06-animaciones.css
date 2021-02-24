@@ -3,10 +3,9 @@
 	box-sizing: border-box;
 	padding: 0;
 }
-body{
-  padding: 200px;
+body {
+	padding: 200px;
 }
-
 .cuadrado {
 	height: 200px;
 	width: 200px;
