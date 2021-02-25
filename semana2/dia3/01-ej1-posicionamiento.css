@@ -1,0 +1,40 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+.card {
+	width: 400px;
+	height: 600px;
+	margin: 0 auto;
+	
+	position: relative;
+	border-radius: 25px 5px 25px 5px;
+	/*Esqu. Sup Izq - Esqu. Sup Der - Esqu. Inf Der - Esqu. Inf Izqu*/
+	overflow: hidden;
+}
+.card img {
+}
+.card span {
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+}
+.card__border {
+	position: absolute;
+	border-radius: 25px 5px 25px 5px;
+	border: 2px solid rgba(110, 110, 110, 0.5);
+	width: calc(100% - 20px);
+	height: calc(100% - 20px);
+	top: 10px;
+	left: 10px;
+}
+
+/*
+sugerencias:
+- hacer al card, padre relativo
+- hacer al span, hijo absoluto y posicionarlo
+- hacer que el card mida también 400*600 
+para no tener incongruencias con la imagen
+- procurar darle sombra, borde, centrar al padre
+*/

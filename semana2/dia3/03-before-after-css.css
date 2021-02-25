@@ -1,0 +1,76 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+body {
+	background-color: #222;
+	color: #f4f4f4;
+	font-family: sans-serif;
+	padding: 20px;
+}
+
+.parrafo1::before {
+	content: "++";
+}
+
+.parrafo1::after {
+	content: "❤";
+}
+.parrafo2::before {
+	content: "";
+	border: 1px solid yellow;
+	transform: rotate(45deg);
+	width: 5px;
+	height: 5px;
+	display: inline-block;
+}
+.link {
+	color: #fcfcfc;
+	text-decoration: none;
+	position: relative;
+}
+.link::before {
+	content: "";
+	position: absolute;
+	width: 0%;
+	height: 100%;
+	border-bottom: 2px solid #c3e6f8;
+	transition: width 0.2s ease-in;
+}
+/*Este estilo a continuación, se aplcicará cuando
+el mouse pase por encima del elemento .link 
+pero los cambios serán afectados al elemento ::before*/
+.link:hover::before {
+	width: 100%;
+}
+
+.card {
+	margin-top: 20px;
+	width: 300px;
+	/* height: 150px; */
+	background-color: #111;
+	border-radius: 15px;
+	position: relative;
+	padding: 10px 14px;
+}
+
+.card::before {
+	content: "";
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	background: linear-gradient(#ffa600, #ff0000);
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	z-index: -2;
+	border-radius: 15px;
+}
+.card h3 {
+	background: linear-gradient(#ffa600, #ff0000);
+	color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+}
+
