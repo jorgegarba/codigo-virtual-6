@@ -1,0 +1,45 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+body {
+	background-color: #222;
+	color: white;
+}
+.contenedor {
+	border: 1px solid yellow;
+	display: flex;
+	height: 300px;
+	/*flex-direction: row; propiedad por defecto
+  cuando un padre es te tipo FLEX*/
+	/*¿Qué significa?*/
+	/*Que todos los hijos se colocan en una sola fila*/
+	/*Depende:*/
+	flex-direction: row;
+	/*flex-wrap: nowrap; propiedad por defecto
+  ¿Qué significa?, que los hijos no colapsan incluso si necesitaran
+  más espacio del que tienen disponible*/
+	flex-wrap: wrap;
+}
+.contenedor > div {
+	border: 1px solid;
+
+}
+.hijo-1 {
+	width: 50%;
+  height: 100px;
+}
+.hijo-2 {
+	width: 50%;
+  height: 100px;
+}
+.hijo-3 {
+	width: 50%;
+  height: 100px;
+}
+.hijo-4 {
+	width: 50%;
+  height: 100px;
+}
