@@ -1,0 +1,39 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+}
+
+.sectionLeft,
+.sectionRight {
+	flex: 1;
+}
+
+.sectionLeft {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/*Gap es la distancia que habrá en el eje principal
+   entre todos los hijos flexibles*/
+	gap: 40px;
+}
+
+.sectionRight {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.description {
+	max-width: 300px;
+}
+
+/* .logo {
+	margin-bottom: 40px;
+} */

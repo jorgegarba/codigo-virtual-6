@@ -22,24 +22,43 @@ body {
   ¿Qué significa?, que los hijos no colapsan incluso si necesitaran
   más espacio del que tienen disponible*/
 	flex-wrap: wrap;
+	/*¿Cuáles son los ejes principales y secundarios?*/
+	/*
+	Depende:
+	- Cuando flex-direction: row; EJE PRINCIPAL:X, EJE SECUNDARIO:Y
+	- Cuando flex-direction: column; EJE PRINCIPAL:Y, EJE SECUNDARIO:X
+	*/
+	/*Alineación*/
+	/*justify-content: ; => Alinea los elementos en el eje PRINCIPAL*/
+	/*align-items: ; => Alinea los elementos en el eje SECUNDARIO*/
+	justify-content: space-between;
+	align-items: center;
 }
 .contenedor > div {
 	border: 1px solid;
-
 }
 .hijo-1 {
-	width: 50%;
-  height: 100px;
+	width: 250px;
+	height: 100px;
+	/*flex-grow: ;*/
+	/* flex: 2; */
 }
 .hijo-2 {
-	width: 50%;
-  height: 100px;
+	/* width: 100px; */
+	height: 100px;
+	/*flex-grow: ;*/
+	flex: 1;
 }
 .hijo-3 {
-	width: 50%;
-  height: 100px;
+	width: 100px;
+	/* height: 100px; */
+	align-self: flex-start;
+	/*flex-grow: ;*/
+	flex: 1;
 }
 .hijo-4 {
-	width: 50%;
-  height: 100px;
+	/* width: 100px; */
+	height: 100px;
+	/*flex-grow: ;*/
+	flex: 1;
 }
