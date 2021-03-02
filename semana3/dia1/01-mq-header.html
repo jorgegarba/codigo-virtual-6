@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./01-mq-header.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__wrapper open">
+      <figure class="header__logo">
+        <img src="http://placehold.it/200X45" alt="">
+      </figure>
+      <button class="btn__menu">
+        &#9776;
+      </button>
+      <nav class="header__nav">
+        <ul class="header__list">
+          <li><a href="#" class="header__link">H</a></li>
+          <li><a href="#" class="header__link">work</a></li>
+          <li><a href="#" class="header__link">services</a></li>
+          <li><a href="#" class="header__link">about</a></li>
+          <li><a href="#" class="header__link">contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <script>
+    const button = document.querySelector("header .btn__menu");
+    const header__wrapper = document.querySelector(".header__wrapper");
+    console.log(header__wrapper);
+    button.onclick = () => {
+      header__wrapper.classList.toggle("open")
+    }
+  </script>
+</body>
+
+</html>
