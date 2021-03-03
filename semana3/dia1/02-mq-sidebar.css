@@ -38,20 +38,23 @@ body {
 	min-width: 300px;
 	justify-content: space-between;
 }
-.header__menu {
+.header__menu,
+.sidebar__menu {
 	outline: none;
 	color: white;
 	background-color: transparent;
 	border: none;
-	font-size: 32px;
+	font-size: 0px;
+	transition: font-size 0.3s linear;
 }
 .main {
 	display: flex;
 	min-height: calc(100vh - 60px);
 }
 .sidebar {
-	min-width: 300px;
+	width: 300px;
 	background-color: #2f323b;
+	transition: width 0.3s linear;
 }
 .main__container {
 	flex: 1;
@@ -67,6 +70,8 @@ body {
 	height: 150px;
 	width: 150px;
 	border-radius: 50%;
+	overflow: hidden;
+	transition: height 0.3s linear;
 }
 .sidebar__picture img {
 	max-width: 100%;
@@ -75,9 +80,11 @@ body {
 	color: #f1f1f1;
 	/* width: 100%; */
 	text-align: center;
+	transition: font-size 0.3s linear;
 }
 .sidebar__nav {
 	padding-top: 30px;
+	transition: padding-top 0.3s linear, height 0.3s linear;
 }
 .sidebar__list {
 	list-style: none;
@@ -88,6 +95,7 @@ body {
 }
 .sidebar__item:hover {
 	background-color: rgba(255, 255, 255, 0.1);
+	cursor: pointer;
 }
 .sidebar__link {
 	color: #f1f1f1;
@@ -95,4 +103,89 @@ body {
 }
 .sidebar__link span {
 	margin-left: 15px;
+	transition: font-size 0.3s linear;
+}
+
+@media (max-width: 768px) {
+	.sidebar {
+		width: 90px;
+	}
+	.sidebar__link span {
+		font-size: 0px;
+		margin-left: 0px;
+	}
+	.sidebar__picture {
+		height: 0px;
+	}
+	.sidebar__name {
+		font-size: 0px;
+	}
+	.sidebar__nav {
+		padding-top: 0px;
+	}
+	.header__menu {
+		font-size: 32px;
+	}
+	/***cuando el sidebar esté en OPEN*****/
+	.sidebar.open {
+		width: 300px;
+	}
+	.sidebar.open .sidebar__link span {
+		font-size: unset;
+		margin-left: 15px;
+	}
+	.sidebar.open .sidebar__picture {
+		height: 150px;
+	}
+	.sidebar.open .sidebar__name {
+		font-size: unset;
+	}
+	.sidebar.open .sidebar__nav {
+		padding-top: 30px;
+	}
+}
+
+@media (max-width: 480px) {
+	.main {
+		flex-direction: column;
+	}
+	.sidebar {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.sidebar__picture {
+		height: 45px;
+		width: 45px;
+		padding-left: 15px;
+		display: flex;
+		align-items: flex-end;
+	}
+	.sidebar__menu {
+		font-size: 32px;
+	}
+	.sidebar__nav {
+		width: 100%;
+		overflow: hidden;
+		height: 0;
+	}
+	.sidebar__link span {
+		font-size: unset;
+		margin-left: 15px;
+	}
+	.sidebar__profile {
+		padding-top: 10px;
+	}
+	.sidebar__menu {
+		padding-right: 15px;
+	}
+	.sidebar.open-mobile .sidebar__nav {
+		height: 175px;
+		overflow: unset;
+	}
+	.header__menu {
+		font-size: 0px;
+	}
 }
