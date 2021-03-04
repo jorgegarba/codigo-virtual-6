@@ -1,0 +1,34 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.padre {
+	height: 300px;
+	width: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.numero {
+	width: attr(ancho);
+	height: 40px;
+	background-color: #3f803f;
+	border-radius: 50%;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: sans-serif;
+}
+.padre::before {
+	content: "";
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: calc(50% - 1px);
+	border-left: 2px solid #3f803f;
+	z-index: -1;
+}
