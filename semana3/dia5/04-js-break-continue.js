@@ -34,3 +34,6 @@ for (const numero of [1, 2, 3, 4, 5, 6]) {
     console.log(`${numero} x ${multiplicador} = ${numero * multiplicador}`);
   }
 }
+
+// INVESTIGAR LOS ITERADORES 
+// WHILE y DO-WHILE en JAVASCRIPT
