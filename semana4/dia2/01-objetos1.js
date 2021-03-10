@@ -37,8 +37,8 @@ console.log(mascotaPerdida);
 console.log("-------------------------------------------------------");
 
 const MascotaConstructor = function (_raza, _colores,
-                              _encontradoEn, _alturaMetros,
-                              _edadAprox, _nroContacto, _genero) {
+  _encontradoEn, _alturaMetros,
+  _edadAprox, _nroContacto, _genero) {
   let mascotaPerdida = {
     raza: _raza || "",
     colores: _colores || [],
@@ -52,7 +52,7 @@ const MascotaConstructor = function (_raza, _colores,
 }
 
 let fido = MascotaConstructor("Pitbull", ["negro", "blanco"], "Av. Progreso", 0.5, 2, "95474123", "macho");
-let sasha = MascotaConstructor()
+let sasha = MascotaConstructor();
 console.log(fido)
 console.log(sasha)
 fido.raza = "Pitbull"
