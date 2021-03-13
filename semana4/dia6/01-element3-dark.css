@@ -1,0 +1,17 @@
+body {
+	background-color: #303030;
+}
+.header {
+	background-color: #ac1b5a;
+	box-shadow: 0px 2px 8px #151515;
+}
+.header__link {
+	color: #eee;
+}
+.header__item:hover {
+	border-bottom-color: #fd539d;
+}
+
+.header__item.active {
+	border-bottom-color: #fd539d;
+}

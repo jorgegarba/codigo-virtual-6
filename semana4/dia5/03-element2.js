@@ -16,6 +16,8 @@ let btnBordeMenor = document.querySelector("#btnBordeMenor");
 let btnBordeNeutro = document.querySelector("#btnBordeNeutro");
 let btnBordeMayor = document.querySelector("#btnBordeMayor");
 
+let btnMostrarClases = document.querySelector("#btnMostrarClases");
+
 btnCirculo.onclick = function () {
   div1.classList.remove("cuadrado");
   div1.classList.add("circulo");
@@ -54,8 +56,19 @@ btnBordeMayor.onclick = function () {
 
 btnBordeMenor.onclick = function () {
   let borde = +tabla.getAttribute("border");
-  if (borde === 0) return;
+  if (borde === 0)
+    return;
   borde--;
   tabla.setAttribute("border", borde);
+}
 
+btnMostrarClases.onclick = function () {
+  // Mostrando las clases de un elemento
+  console.log(div1.classList);
+  // Averiguando si un elemento tiene una determinada clase
+  if (div1.classList.contains("circulo")) {
+    console.log("Sí tiene la clase 'circulo'");
+  }
+  // Otra forma de mostrar las clases:
+  console.log(div1.getAttribute("class"));
 }

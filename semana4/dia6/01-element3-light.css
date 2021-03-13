@@ -1,0 +1,17 @@
+body {
+	background-color: #f3f3f3;
+}
+.header {
+	background-color: white;
+	box-shadow: 0px 2px 8px #bbb;
+}
+.header__link {
+	color: #ac1b5a;
+}
+.header__item:hover {
+	border-bottom-color: #ac1b5a;
+}
+
+.header__item.active {
+	border-bottom-color: #ac1b5a;
+}
