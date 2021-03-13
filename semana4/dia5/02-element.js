@@ -35,10 +35,6 @@ const llenarPeliculas = () => {
 }
 llenarPeliculas();
 
-
-
-
-
 const llenarGeneros = () => {
   let selectGeneros = document.getElementById("selectGeneros");
   generos.forEach((objGenero) => {

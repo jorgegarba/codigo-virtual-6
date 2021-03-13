@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #eee;
+    }
+
+    .circulo {
+      border-radius: 50%;
+    }
+
+    .cuadrado {
+      border-radius: 2px;
+    }
+
+    .cuadro {
+      background-color: orange;
+      height: 100px;
+      width: 100px;
+      transition: border-radius 0.3s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cuadro" id="div1"></div>
+  <button id="btnCirculo">circulo</button>
+  <button id="btnCuadrado">cuadrado</button>
+
+  <div class="cuadro" id="div2">DIV2</div>
+  <label for="">Interruptor clase circulo</label>
+  <input type="checkbox" id="interruptor">
+
+  <hr />
+
+  <table id="tabla" border="0">
+    <thead>
+      <tr>
+        <th>Encabezado 1</th>
+        <th>Encabezado 2</th>
+        <th>Encabezado 3</th>
+        <th>Encabezado 4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Columna 1</td>
+        <td>Columna 2</td>
+        <td>Columna 3</td>
+        <td>Columna 4</td>
+      </tr>
+      <tr>
+        <td>Columna 1</td>
+        <td>Columna 2</td>
+        <td>Columna 3</td>
+        <td>Columna 4</td>
+      </tr>
+      <tr>
+        <td>Columna 1</td>
+        <td>Columna 2</td>
+        <td>Columna 3</td>
+        <td>Columna 4</td>
+      </tr>
+      <tr>
+        <td>Columna 1</td>
+        <td>Columna 2</td>
+        <td>Columna 3</td>
+        <td>Columna 4</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button id="btnBordeMenor">borde -1</button>
+  <button id="btnBordeNeutro">borde</button>
+  <button id="btnBordeMayor">borde +1</button>
+
+
+
+
+  <script src="./03-element2.js"></script>
+</body>
+
+</html>
