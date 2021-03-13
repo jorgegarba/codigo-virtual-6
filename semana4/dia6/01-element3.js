@@ -21,3 +21,19 @@ lis.forEach((headerItem) => {
     headerItem.classList.add("active");
   }
 });
+
+/**
+ * Modificar el tema a través del botón foquito
+ */
+
+let headerTheme = qs(".header__theme");
+let linkTheme = qs("#linkTheme");
+
+headerTheme.onclick = function () {
+  if (linkTheme.getAttribute("href").indexOf("light") >= 0) {
+    //hemos preguntado si la palabra "light" existe en el string que tiene el atributo href
+    linkTheme.setAttribute("href", "./01-element3-dark.css");
+  } else {
+    linkTheme.setAttribute("href", "./01-element3-light.css");
+  }
+}
