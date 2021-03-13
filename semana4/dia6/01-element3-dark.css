@@ -15,3 +15,11 @@ body {
 .header__item.active {
 	border-bottom-color: #fd539d;
 }
+
+.header__theme{
+  color: #303030;
+  text-shadow: 0px 0px 20px #303030;
+}
+.header__theme:hover{
+    
+}
