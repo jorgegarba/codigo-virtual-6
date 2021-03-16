@@ -6,10 +6,10 @@ const selectPais = document.querySelector("#selectPais");
 const selectDepartamento = document.querySelector("#selectDepartamento");
 
 let paises = [
-  { id: 12343, nombre: "Perú" },
-  { id: 12, nombre: "México" },
-  { id: 13, nombre: "China" },
-  { id: 19, nombre: "Argentina" },
+  { id: 12343, nombre: "Perú", },
+  { id: 12, nombre: "México", },
+  { id: 13, nombre: "China", },
+  { id: 19, nombre: "Argentina", },
 ]
 let departamentos = [
   { id: 22, nombre: "Lima", idPais: 12343 },
@@ -67,4 +67,18 @@ formulario.onsubmit = (e) => {
   e.preventDefault();
   console.log("HACIENDO ONSUBMIT");
 }
+
+
+const llenarPaises = () => {
+
+  paises.forEach((objPais) => {
+    let option = document.createElement("option");
+    option.innerText = objPais.nombre;
+    option.value = objPais.id;
+    selectPais.appendChild(option);
+  })
+
+}
+llenarPaises();
+
 
