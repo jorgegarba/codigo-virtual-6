@@ -12,14 +12,14 @@ let paises = [
   { id: 19, nombre: "Argentina", },
 ]
 let departamentos = [
-  { id: 22, nombre: "Lima", idPais: 12343 },
-  { id: 23, nombre: "Puno", idPais: 12343 },
-  { id: 24, nombre: "Wujan", idPais: 13 },
-  { id: 25, nombre: "Acapulco", idPais: 12 },
-  { id: 26, nombre: "Fujian", idPais: 13 },
-  { id: 27, nombre: "Buenos Aires", idPais: 19 },
-  { id: 28, nombre: "Cordova", idPais: 19 },
-  { id: 29, nombre: "Tulum", idPais: 12 },
+  { id: 22, nombre: "Lima", idPais: 12343, stock: true },
+  { id: 23, nombre: "Puno", idPais: 12343, stock: false },
+  { id: 24, nombre: "Wujan", idPais: 13, stock: false },
+  { id: 25, nombre: "Acapulco", idPais: 12, stock: true },
+  { id: 26, nombre: "Fujian", idPais: 13, stock: false },
+  { id: 27, nombre: "Buenos Aires", idPais: 19, stock: true },
+  { id: 28, nombre: "Cordova", idPais: 19, stock: false },
+  { id: 29, nombre: "Tulum", idPais: 12, stock: true },
 ]
 
 // formulario.addEventListener("click", () => {
@@ -70,15 +70,54 @@ formulario.onsubmit = (e) => {
 
 
 const llenarPaises = () => {
-
+  selectPais.innerHTML = "<option value='0' selected disabled>Seleccione un país</option>";
   paises.forEach((objPais) => {
     let option = document.createElement("option");
     option.innerText = objPais.nombre;
     option.value = objPais.id;
     selectPais.appendChild(option);
   })
-
 }
 llenarPaises();
 
+
+const llenarDepartamentosByIdPais = (idPaisSeleccionado) => {
+
+  selectDepartamento.innerHTML = "<option value='0' selected>Seleccione un Departamento</option>"
+
+  if (idPaisSeleccionado === 0) {
+    selectDepartamento.setAttribute("disabled", "disabled");
+    return;
+  }
+
+  let depasPorPais = departamentos.filter((objDpto) => {
+    if (objDpto.idPais === idPaisSeleccionado) {
+      return objDpto;
+    }
+  });
+  depasPorPais.forEach((objDepa) => {
+    let option = document.createElement("option");
+    option.innerText = objDepa.nombre;
+    option.value = objDepa.id;
+
+    // !objDepa.stock && option.setAttribute("disabled", "disabled")
+    if (objDepa.stock === false) {
+      option.setAttribute("disabled", "disabled")
+    }
+
+
+    selectDepartamento.appendChild(option);
+  })
+  // elemento.removeAttribute("atributo") => remueve o borra un atributo de un elemento
+  selectDepartamento.removeAttribute("disabled");
+
+}
+
+/**
+ * onchange => evento que se dispara cuando el valor del select cambia
+ */
+selectPais.onchange = () => {
+  let idPaisSeleccionado = +selectPais.value;
+  llenarDepartamentosByIdPais(idPaisSeleccionado);
+}
 
