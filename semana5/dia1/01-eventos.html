@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0;
+
+    }
+
+    body {
+      padding-top: 100px;
+      background-color: #ddd;
+      font-family: sans-serif;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      padding: 15px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px #ccc;
+    }
+
+    form>div input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px auto;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="formulario">
+    <div>
+      <label for="inputNombre">Nombre:</label>
+      <input type="text" placeholder="Ingrese su nombre" id="inputNombre" name="nombre">
+    </div>
+    <div>
+      <label for="inputApellido">Apellido:</label>
+      <input type="text" placeholder="Ingrese su apellido" id="inputApellido" name="apellido">
+    </div>
+    <div>
+      <label for="inputEmail">Email:</label>
+      <input type="email" placeholder="Ingrese su email" id="inputEmail" name="email">
+    </div>
+
+    <div>
+      <label for="selectPais">Seleccione País:</label>
+      <select name="" id="selectPais"></select>
+    </div>
+    <div>
+      <label for="selectDepartamento">Seleccione Departamento:</label>
+      <select name="" id="selectDepartamento" disabled="disabled"></select>
+    </div>
+
+    <button type="submit">Enviar Datos</button>
+    <button type="button">Cancelar acciones</button>
+    <small><a href="https://www.google.com">Olvidé mi contraseña</a></small>
+  </form>
+  <script src="./01-eventos.js"></script>
+</body>
+
+</html>
