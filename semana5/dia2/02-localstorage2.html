@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0;
+    }
+
+    body {
+      padding-top: 100px;
+      background-color: #222;
+      color: #eee;
+      font-family: sans-serif;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      padding: 15px;
+      background-color: #333;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px #111;
+      margin-bottom: 20px;
+    }
+
+    form>div input,
+    form>div textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px auto;
+      border-radius: 3px;
+      background-color: #444;
+      color: #ddd;
+      font-size: 18px;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    thead th,
+    tbody td {
+      padding: 20px 10px;
+      /* background-color: #fff; */
+    }
+
+    thead th:first-child {
+      border-top-left-radius: 5px;
+    }
+
+    thead th:last-child {
+      border-top-right-radius: 5px;
+    }
+
+    tbody tr:last-child td:first-child {
+      border-bottom-left-radius: 5px;
+    }
+
+    tbody tr:last-child td:last-child {
+      border-bottom-right-radius: 5px;
+    }
+
+    thead th {
+      border: 1px solid #ccc;
+    }
+
+    tbody td {
+      border: 1px solid #666;
+    }
+
+    thead tr {
+      background-color: #454545;
+    }
+
+    tbody tr {
+      cursor: pointer;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #3a3a3a;
+    }
+
+    tbody tr:hover {
+      background-color: #404040;
+    }
+
+    .contenedor {
+      max-width: 80%;
+      margin: auto;
+    }
+
+    form button[type="submit"] {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="contenedor">
+    <form id="formulario">
+      <div>
+        <label for="inputTitulo">Ingrese el título del TO-DO</label>
+        <input type="text" id="inputTitulo">
+      </div>
+      <div>
+        <label for="inputDescripcion">Ingrese la descripción</label>
+        <textarea id="inputDescripcion" cols="30" rows="10"></textarea>
+      </div>
+      <div style="text-align: center;">
+        <button type="submit">
+          Registrar TODO
+        </button>
+      </div>
+    </form>
+    <table>
+      <table cellspacing="0">
+        <thead>
+          <tr>
+            <!-- Correlativo -->
+            <th>#</th>
+            <th>Todo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr>
+            <!-- Correlativo -->
+            <td>Data Falsa</td>
+            <td>Data Falsa</td>
+            <td style="text-align: center;">
+              <button style="padding: 10px;">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <!-- Correlativo -->
+            <td>Data Falsa</td>
+            <td>Data Falsa</td>
+            <td style="text-align: center;">
+              <button style="padding: 10px;">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <!-- Correlativo -->
+            <td>Data Falsa</td>
+            <td>Data Falsa</td>
+            <td style="text-align: center;">
+              <button style="padding: 10px;">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <!-- Correlativo -->
+            <td>Data Falsa</td>
+            <td>Data Falsa</td>
+            <td style="text-align: center;">
+              <button style="padding: 10px;">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </table>
+  </div>
+
+  <script src="./02-localstorage2.js"></script>
+</body>
+
+</html>

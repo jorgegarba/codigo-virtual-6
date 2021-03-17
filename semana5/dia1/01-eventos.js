@@ -65,7 +65,20 @@ formulario.onsubmit = (e) => {
   // Ejm: una etiqueta <form></form> actualiza la página con el evento ONSUBMIT
   // Ejm: hacer click derecho en el viewport, abre un menú contextual en el evento CONTEXTMENU
   e.preventDefault();
-  console.log("HACIENDO ONSUBMIT");
+  let regexLetras = new RegExp('^[a-zA-Zñ]{1,5}$');
+  if (regexLetras.test(datos.nombre)) {
+    if (regexLetras.test(datos.apellido)) {
+      //////si todo sale bien
+      console.log("HACIENDO ONSUBMIT");
+    } else {
+      inputApellido.classList.add("error-input");
+      return;
+    }
+  } else {
+    inputNombre.classList.add("error-input");
+    return;
+  }
+
 }
 
 
@@ -95,6 +108,10 @@ const llenarDepartamentosByIdPais = (idPaisSeleccionado) => {
       return objDpto;
     }
   });
+
+  // let deptasPorPais = departamentos.filter(objDpto => objDpto.idPais === idPaisSeleccionado)
+
+
   depasPorPais.forEach((objDepa) => {
     let option = document.createElement("option");
     option.innerText = objDepa.nombre;
@@ -104,7 +121,6 @@ const llenarDepartamentosByIdPais = (idPaisSeleccionado) => {
     if (objDepa.stock === false) {
       option.setAttribute("disabled", "disabled")
     }
-
 
     selectDepartamento.appendChild(option);
   })
@@ -120,4 +136,5 @@ selectPais.onchange = () => {
   let idPaisSeleccionado = +selectPais.value;
   llenarDepartamentosByIdPais(idPaisSeleccionado);
 }
+
 
