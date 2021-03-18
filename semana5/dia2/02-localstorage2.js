@@ -3,6 +3,7 @@ const inputTitulo = document.getElementById("inputTitulo");
 const inputDescripcion = document.getElementById("inputDescripcion");
 const tbody = document.getElementById("tbody");
 
+
 let arrayTODOS = [];
 
 formulario.onsubmit = function (e) {
@@ -10,6 +11,13 @@ formulario.onsubmit = function (e) {
   if (inputTitulo.value.trim() === "" ||
     inputDescripcion.value.trim() === "") {
     // MOSTRAR ERROR
+    Swal.fire({
+      icon: "error",
+      title: "Ups!",
+      text: "Todos los campos deben estar debidamente llenados",
+      // timer: 1000
+    })
+
     return;
   }
   let objTODO = {
@@ -17,6 +25,15 @@ formulario.onsubmit = function (e) {
     descripcion: inputDescripcion.value
   }
   arrayTODOS.push(objTODO);
+  // guardar el arreglo en el localStorage
+  /**
+   * JSON.stringify(objetoJSON), retorna un strin que viene a ser
+   * el objetoJSON en formato string
+   */
+  let arregloSTRING = JSON.stringify(arrayTODOS);
+  localStorage.setItem("todos", arregloSTRING);
+
+
   this.reset();
   dibujarTODOS();
 }
@@ -52,10 +69,7 @@ const dibujarTODOS = () => {
     tbody.appendChild(tr);
   });
 }
-
-
 const eliminarTODO = posicion => {
-
   /**
    * array.splice(posicion,nro_elementos)
    * Elimina "nro_elementos " de un arreglo a partir de la posición "posicion"
@@ -63,5 +77,23 @@ const eliminarTODO = posicion => {
    * OPCIONALMENTE RETORNA EL ELEMENTO ELIMINADO
    */
   arrayTODOS.splice(posicion, 1);
+  // actualizar el localStorage
+  localStorage.setItem("todos", JSON.stringify(arrayTODOS));
   dibujarTODOS();
 }
+
+(() => {
+  if (localStorage.getItem("todos")) {
+    /**
+     * JSON.parse(string-en-formato-json)
+     * Devuelve un JSON como tal dado un string
+     */
+    arrayTODOS = JSON.parse(localStorage.getItem("todos"));
+    dibujarTODOS();
+  }
+
+  // Configurando WAVES.JS
+  Waves.attach("#btnSubmit");
+  Waves.attach("#inputTitulo");
+  Waves.init();
+})()

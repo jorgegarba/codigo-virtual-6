@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./libs/waves/waves.min.css">
   <title>Document</title>
   <style>
     * {
@@ -30,9 +31,13 @@
       margin-bottom: 20px;
     }
 
+    form input {
+      border-bottom: 1px solid #ccc !important;
+    }
+
     form>div input,
     form>div textarea {
-      width: 100%;
+      width: 100% !important;
       padding: 10px;
       margin: 5px auto;
       border-radius: 3px;
@@ -107,14 +112,16 @@
     <form id="formulario">
       <div>
         <label for="inputTitulo">Ingrese el título del TO-DO</label>
-        <input type="text" id="inputTitulo">
+        <p>
+          <input type="text" id="inputTitulo">
+        </p>
       </div>
       <div>
         <label for="inputDescripcion">Ingrese la descripción</label>
         <textarea id="inputDescripcion" cols="30" rows="10"></textarea>
       </div>
       <div style="text-align: center;">
-        <button type="submit">
+        <button type="submit" id="btnSubmit">
           Registrar TODO
         </button>
       </div>
@@ -144,7 +151,8 @@
       </table>
     </table>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="./libs/waves/waves.min.js"></script>
   <script src="./02-localstorage2.js"></script>
 </body>
 
