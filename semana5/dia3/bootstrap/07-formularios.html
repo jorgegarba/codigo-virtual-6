@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <title>Document</title>
+</head>
+
+<body class="bg-dark">
+
+  <main class="container">
+    <div class="row">
+      <div class="col bg-light">
+        <form>
+          <div class="mb-3">
+            <label for="" class="form-label">
+              Nombre del Curso:
+            </label>
+            <input type="text" class="form-control" placeholder="Ejm: Curso profesional de React">
+            <div class="form-text">
+              Como mínimo 10 caracteres
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="" class="form-label">Seleccione dificultad:</label>
+            <select name="" id="" class="form-select">
+              <option value="1">Básico</option>
+              <option value="2">Intermedio</option>
+              <option value="3">Avanzado</option>
+            </select>
+          </div>
+          <div>
+            <label for="" class="form-label">Seleccione Modalidad:</label>
+            <div class="form-check">
+              <input id="radioSincrono" type="radio" class="form-check-input" name="radioModalidad" checked>
+              <label for="radioSincrono" class="form-check-label">
+                Síncrono
+              </label>
+            </div>
+            <div class="form-check">
+              <input id="radioAsincrono" type="radio" class="form-check-input" name="radioModalidad">
+              <label for="radioAsincrono" class="form-check-label">
+                Asíncrono
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label for="" class="form-label">Cantidad de Horas:</label>
+              <input type="number" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label for="" class="form-label">Número de Módulos</label>
+              <input type="number" class="form-control">
+            </div>
+          </div>
+
+          <button class="btn btn-primary">Crear Curso</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
