@@ -42,7 +42,7 @@ export let peliculas = [
     "vote_count": 206
   },
   {
-    "adult": false,
+    "adult": true,
     "backdrop_path": "/fev8UFNFFYsD5q7AcYS8LyTzqwl.jpg",
     "genre_ids": [
       28,
@@ -83,7 +83,7 @@ export let peliculas = [
     "vote_count": 441
   },
   {
-    "adult": false,
+    "adult": true,
     "backdrop_path": "/z8TvnEVRenMSTemxYZwLGqFofgF.jpg",
     "genre_ids": [
       14,

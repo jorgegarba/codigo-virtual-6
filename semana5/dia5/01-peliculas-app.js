@@ -2,6 +2,20 @@ import { peliculas, titulo } from "./data-peliculas.js"
 
 
 const contenedor = document.querySelector("#contenedor");
+const modalImagen = document.querySelector("#modalImagen");
+const modalTitulo = document.querySelector("#modalTitulo");
+const modalOverview = document.querySelector("#modalOverview");
+const modalPelicula = new bootstrap.Modal(document.getElementById("modalPelicula"))
+const carouselMain = document.querySelector(".main-carousel");
+
+const abrirModalPelicula = objPelicula => {
+
+  modalImagen.src = `https://image.tmdb.org/t/p/w500${objPelicula.poster_path}`;
+  modalTitulo.innerText = objPelicula.original_title;
+  modalOverview.innerText = objPelicula.overview;
+  modalPelicula.show();
+
+}
 
 const fillMovies = () => {
 
@@ -23,12 +37,16 @@ const fillMovies = () => {
     // creando el párrafo de la sinopsis
     const cardText = document.createElement("p");
     cardText.classList.add("card-text");
-    cardText.innerText = `${objPelicula.overview}`;
+    cardText.innerText = `${objPelicula.overview.substr(0, 80)} ...`;
 
     //creando el link de leer mas!
     const cardLink = document.createElement("a");
     cardLink.innerText = "leer mas...";
     cardLink.href = "#";
+    cardLink.onclick = (e) => {
+      e.preventDefault();
+      abrirModalPelicula(objPelicula);
+    }
 
     // creando el ul de las características
     const cardFeatures = document.createElement("ul");
@@ -72,3 +90,21 @@ const fillMovies = () => {
 
 }
 fillMovies();
+
+
+const dibujarPopulares = () => {
+  peliculas.forEach((objPelicula) => {
+    const cell = document.createElement("div");
+    cell.classList.add("carousel-cell");
+    cell.innerHTML = `<img src="https://image.tmdb.org/t/p/w500/${objPelicula.poster_path}" />`;
+    carouselMain.appendChild(cell);
+  })
+}
+
+dibujarPopulares();
+
+const iniciarFlickity = () => {
+  const elem = document.querySelector(".main-carousel");
+  const flick = new Flickity(elem, { cellAlign: "left", contain: true });
+}
+iniciarFlickity();
