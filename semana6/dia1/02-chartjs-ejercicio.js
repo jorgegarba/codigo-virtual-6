@@ -46,7 +46,8 @@ var myChart = new Chart(ctx, {
             callback: function (value, index, values) {
               return value / 1e6 + "M"
             },
-            fontColor: "rgba(54, 162, 235, 1)"
+            fontColor: "rgba(54, 162, 235, 1)",
+            // max: 3_000_000
           },
           id: "C",
           position: "left"
