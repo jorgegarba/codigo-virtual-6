@@ -33,33 +33,32 @@ const dibujarPeliculas = (peliculas) => {
     const col = document.createElement("div");
     col.classList.add("col-md-3");
     col.innerHTML = `<div class="card">
-                        <img src="http://placehold.it/200" alt="" class="card-img-top">
+                        <img src="${objPelicula.poster_path ? 'https://image.tmdb.org/t/p/w500' + objPelicula.poster_path : 'http://placehold.it/200'}" class="card-img-top">
                         <div class="card-body">
-                          <h4 class="card-title">Scarface</h4>
+                          <h4 class="card-title">${objPelicula.original_title}</h4>
                           <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat ex quas perspiciatis illum,
-                            et placeat <a href="#">leer mas...</a>
+                            ${objPelicula.overview}
+                            <a href="#">leer mas...</a>
                           </p>
                           <ul class="movie__features">
                             <li>
                               <small class="text-muted">
-                                <i class="fas fa-calendar"></i> 10-10-2021
+                                <i class="fas fa-calendar"></i> ${objPelicula.release_date}
                               </small>
                             </li>
                             <li>
                               <small class="text-muted">
-                                <i class="fas fa-star text-warning"></i> 4.5
+                                <i class="fas fa-star text-warning"></i> ${objPelicula.vote_average}
                               </small>
                             </li>
                             <li>
                               <small class="text-muted">
-                                <i class="fas fa-heart text-danger"></i> 205
+                                <i class="fas fa-heart text-danger"></i> ${objPelicula.vote_count}
                               </small>
                             </li>
                             <li>
                               <small class="text-muted">
                                 +18
-                                <i class="fas fa-ban text-danger"></i>
                                 <i class="fas fa-check text-success"></i>
                               </small>
                             </li>
@@ -69,3 +68,4 @@ const dibujarPeliculas = (peliculas) => {
     resultados.appendChild(col);
   })
 }
+
