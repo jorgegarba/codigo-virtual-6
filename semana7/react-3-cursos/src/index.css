@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap');
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.header {
+  height: 60px;
+  box-shadow: 0px 0px 10px #ccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.header__logo img {
+  max-height: 60px;
+}
+
+.header__auth {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__auth span {
+  color: indigo;
+  font-weight: 500;
+}
+
+.header__auth button:hover {
+  box-shadow: 0px 0px 8px #bbb;
+}
+
+.header__auth button {
+  padding: 0.5rem;
+  border: 1px solid indigo;
+  border-radius: 5px;
+  background-color: white;
+  color: indigo;
+  outline: none;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.curso__caracteristicas {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.curso__caracteristicas span {
+  margin-right: 0.5rem;
+}
+
+.curso__info {
+  font-size: 0.9rem;
+}
+
+.curso__descripcion {
+  font-size: 0.9em;
+  color: #666;
+  line-height: 1.05rem;
+  margin: 5px 0 10px 0;
+}
+
+.curso {
+  padding: 0.5rem;
+  display: flex;
+  max-width: calc(50% - 10px);
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px #bbb;
+  cursor: pointer;
+}
+
+.curso:hover {
+  box-shadow: 0px 0px 5px #aaa;
+}
+
+.curso__imagen img {
+  max-width: 100px;
+}
+
+.curso__imagen {
+  position: relative;
+}
+
+.disponible {
+  background-color: green;
+  color: white;
+  border-radius: 2px;
+  padding: 2px 5px;
+}
+
+.no-disponible {
+  background-color: red;
+  color: white;
+  border-radius: 2px;
+  padding: 2px 5px;
+}
+
+.curso__descuento {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  background-color: yellow;
+  font-size: 0.8rem;
+  padding: 10px;
+}

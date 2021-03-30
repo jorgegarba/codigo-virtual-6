@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Categoria from "./Categoria"
 const Categorias = () => {
 
   const listaCategorias = [
@@ -26,13 +26,20 @@ const Categorias = () => {
 
   return (
     <div className="col-md-3">
+
       <ul className="list-group">
+
         {
           listaCategorias.map((objCategoria, i) => {
-            return (<li className="list-group-item" key={i}>{objCategoria.name}</li>)
+            return (
+              <Categoria nombre={objCategoria.name}
+                id={objCategoria.id}
+                key={objCategoria.id} />)
           })
         }
+
       </ul>
+
     </div>
   )
 }
