@@ -26,17 +26,13 @@ const Categorias = () => {
 
   return (
     <div className="col-md-3">
-
       <ul className="list-group">
-
         {
           listaCategorias.map((objCategoria, i) => {
             return (<li className="list-group-item" key={i}>{objCategoria.name}</li>)
           })
         }
-
       </ul>
-
     </div>
   )
 }

@@ -1,6 +1,6 @@
 export let listaPeliculas = [
   {
-    "adult": false,
+    "adult": true,
     "backdrop_path": "/hJuDvwzS0SPlsE6MNFOpznQltDZ.jpg",
     "genre_ids": [
       16,
@@ -123,7 +123,7 @@ export let listaPeliculas = [
     "vote_count": 4304
   },
   {
-    "adult": false,
+    "adult": true,
     "backdrop_path": "/pcDc2WJAYGJTTvRSEIpRZwM3Ola.jpg",
     "genre_ids": [
       28,
@@ -164,7 +164,7 @@ export let listaPeliculas = [
     "vote_count": 386
   },
   {
-    "adult": false,
+    "adult": true,
     "backdrop_path": "/vKzbIoHhk1z9DWYi8kyFe9Gg0HF.jpg",
     "genre_ids": [
       35
@@ -319,7 +319,7 @@ export let listaPeliculas = [
     "vote_count": 3446
   },
   {
-    "adult": false,
+    "adult": true,
     "backdrop_path": "/mGJuQwMq1bEboaVTqQAK4p4zQvC.jpg",
     "genre_ids": [
       28,
@@ -376,7 +376,7 @@ export let listaPeliculas = [
     "vote_count": 223
   },
   {
-    "adult": false,
+    "adult": true,
     "backdrop_path": "/u5WUCO6irZoq27qbYYrtLUrCGDV.jpg",
     "genre_ids": [
       27,
@@ -395,4 +395,3 @@ export let listaPeliculas = [
     "vote_count": 253
   }
 ];
-export const titulo = "PeliculasApp";
