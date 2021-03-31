@@ -1,13 +1,21 @@
 import React, { useState } from 'react'
+import Carrito from './Carrito';
 import Curso from "./Curso";
 import CursoSeleccionado from './CursoSeleccionado';
 
 const Main = (props) => {
 
   const [cursoSelected, setCursoSelected] = useState(null);
+  const [carrito, setCarrito] = useState([]);
 
   const miFuncion = (objCurso) => {
     setCursoSelected(objCurso);
+  }
+
+  const agregarAlCarrito = (objCurso) => {
+    let carritoTemporal = [...carrito];
+    carritoTemporal.push(objCurso);
+    setCarrito(carritoTemporal);
   }
 
   return (
@@ -19,10 +27,13 @@ const Main = (props) => {
           props.listaCursos.map((objCurso) => {
             return <Curso objCurso={objCurso}
                           funcion={miFuncion}
-                          key={objCurso.id} />
+                          agregarAlCarrito={agregarAlCarrito}
+                          key={objCurso.id}/>
           })
         }
       </section>
+
+      <Carrito carrito={carrito} />
 
     </main>
   )
