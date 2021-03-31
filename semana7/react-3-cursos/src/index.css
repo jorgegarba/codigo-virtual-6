@@ -7,6 +7,7 @@
 
 body {
   font-family: "Raleway", sans-serif;
+  color: #222;
 }
 
 .header {
@@ -38,21 +39,35 @@ body {
 
 .header__auth button {
   padding: 0.5rem;
-  border: 1px solid indigo;
   border-radius: 5px;
   background-color: white;
-  color: indigo;
   outline: none;
   cursor: pointer;
 }
 
-.container {
+.btn-success {
+  border: 1px solid green;
+  color: green;
+}
+
+.btn-danger {
+  border: 1px solid #b80000;
+  color: #b80000;
+}
+
+.main {
+  display: flex;
+  padding-right: 240px;
+  padding-left: 240px;
+}
+
+.cursos {
   max-width: 900px;
-  margin: auto;
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
 }
 
 .curso__caracteristicas {
@@ -95,6 +110,92 @@ body {
 
 .curso__imagen {
   position: relative;
+}
+
+.curso__acciones {
+  margin-top: .5rem;
+}
+
+.curso__acciones .btn__comprar {
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+.carrito, .seleccionado {
+  width: 240px;
+  background-color: white;
+  box-shadow: 0px 10px 15px #ccc;
+  position: fixed;
+  right: 0;
+  height: calc(100vh - 60px);
+  padding: 1.5rem 0.5rem;
+}
+
+.seleccionado {
+  left: 0;
+  text-align: center;
+}
+
+.seleccionado__img img {
+  max-width: 100%;
+}
+
+.seleccionado__title {
+  margin-bottom: 1rem;
+}
+
+.seleccionado__desc {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.seleccionado__disponible {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.seleccionado__horas, .seleccionado__precio {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.carrito h3, .seleccionado h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.carrito__lista {
+  list-style: none;
+}
+
+.carrito__lista li {
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+.carrito__lista li strong {
+  font-size: 14px;
+  color: #555;
+}
+
+.carrito__lista p {
+  margin-top: 5px;
+}
+
+.btn-success:hover {
+  background-color: green;
+  border: 1px solid green;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #b80000;
+  border: 1px solid #b80000;
+  color: white;
 }
 
 .disponible {

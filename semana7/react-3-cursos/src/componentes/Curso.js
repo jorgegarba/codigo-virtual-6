@@ -3,7 +3,9 @@ import React from 'react'
 const Curso = (props) => {
 
   return (
-    <div className="curso">
+    <div className="curso" onClick={() => {
+      props.funcion(props.objCurso);
+    }}>
       <figure className="curso__imagen">
         {
           props.objCurso.descuento > 0 ?
