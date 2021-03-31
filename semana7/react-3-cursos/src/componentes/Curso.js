@@ -36,11 +36,11 @@ const Curso = (props) => {
           }
         </div>
       </div>
-      <div class="curso__acciones">
-        <button class="btn__comprar btn-success" onClick={() => {
+      <div className="curso__acciones">
+        <button className="btn__comprar btn-success" onClick={() => {
           props.agregarAlCarrito(props.objCurso);
         }}>
-          <i class="fas fa-shopping-cart"></i>
+          <i className="fas fa-shopping-cart"></i>
         </button>
       </div>
     </div>
