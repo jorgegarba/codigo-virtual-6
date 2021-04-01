@@ -1,6 +1,11 @@
 import React from 'react'
 
-const CardProducto = ({prod}) => {
+const CardProducto = ({prod, agregarACarrito}) => {
+
+  const manejarCarrito = () => {
+    agregarACarrito(prod)
+  }
+
   return (
     <div className="col-12 col-lg-6 col-xl-4">
       <div className="card mb-3">
@@ -10,13 +15,21 @@ const CardProducto = ({prod}) => {
           className="card-img-top"
         />
         <div className="card-body">
-          <h3 className="card-title">
+          <h4 className="card-title">
             {prod.nombre}
-          </h3>
+          </h4>
           <p>{prod.descripcion}</p>
           <p className="font-weight-bold">
-            {prod.precio}
+            S/{prod.precio}
           </p>
+        </div>
+        <div className="card-footer">
+          <button 
+            className="btn btn-primary btn-block"
+            onClick={manejarCarrito}
+            >
+            Agregar
+          </button>
         </div>
       </div>
     </div>
