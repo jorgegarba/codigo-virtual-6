@@ -13,6 +13,9 @@ export default function App() {
 
   return <div>
     <div className="container">
+      <h1 className="my-4">
+        Tiendita
+      </h1>
       <div className="row">
         <div className="col-12 col-md-6">
           <ListaProductos 

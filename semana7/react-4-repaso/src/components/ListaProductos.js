@@ -6,7 +6,7 @@ const ListaProductos = (
   ) => {
   return (
     <div>
-      <h1>Mis Productos</h1>
+      <h3>Mis Productos</h3>
       <div className="row">
         {productos.map((prod, indice) => (
           <CardProducto
