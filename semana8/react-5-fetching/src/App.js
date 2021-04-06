@@ -1,45 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import { getNewsByTag } from "./services/services";
+import React, { useEffect, useState } from 'react'
+import Header from './components/Header'
+import Noticias from './components/Noticias'
+import { getNewsByTag } from './services/services';
 
 const App = () => {
-  console.log("INICIO COMPONENTE APP");
+
   const [noticias, setNoticias] = useState([]);
-  const [cargando, setCargando] = useState(true);
-  const [busqueda, setBusqueda] = useState("coronavirus");
+  const [busqueda, setBusqueda] = useState("");
+
 
 
   useEffect(() => {
-    console.log("INICIO DEL USEEFFECT");
+    if (busqueda === "") {
+      return
+    }
     getNewsByTag(busqueda).then(rpta => {
-      console.log("LLEGÓ LA DATA");
-      setNoticias(rpta.data.articles);
-      setCargando(false);
+      setNoticias(rpta.data.articles)
     })
-  }, []);
+  }, [busqueda]);
 
-  console.log("ANTES DEL RENDER");
+
   return (
-    <div>
-
-      <form onSubmit={(e) => {
-        e.preventDefault();
-
-      }}>
-        <input type="search" />
-        <button type="submit">Buscar</button>
-      </form>
-
-      <hr />
-      {
-        cargando ?
-          <p>CARGANDO...</p> :
-          noticias.map(n => {
-            return <p>{n.title}</p>
-          })
-      }
-
-
-    </div>
+    <>
+      <Header />
+      <main className="container">
+        <Noticias />
+      </main>
+    </>
   )
 }
 
