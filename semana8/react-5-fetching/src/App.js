@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Noticias from './components/Noticias'
+// import NoticiasPopulares from './components/NoticiasPopulares';
 import { getNewsByTag } from './services/services';
 
 const App = () => {
@@ -26,6 +27,9 @@ const App = () => {
     <>
       <Header setBusqueda={setBusqueda} />
       <main className="container">
+
+        {/* <NoticiasPopulares /> */}
+
         {
           cargando ?
             <div className="alert alert-primary mt-5">
