@@ -27,12 +27,14 @@ const NoticiasTabla = (props) => {
                       <td>{objNoticia.title}</td>
                       <td>{objNoticia.description}</td>
                       <td><img
-                        className="rounded-circle"
+                        className="rounded"
                         src={objNoticia.urlToImage}
                         alt={objNoticia.title}
                         width="150" />
                       </td>
-                      <td>LINK......</td>
+                      <td>
+                        <a href={objNoticia.url}>Link</a>
+                      </td>
 
                     </tr>
                   )
