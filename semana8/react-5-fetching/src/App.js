@@ -22,9 +22,9 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Header setBusqueda={setBusqueda} />
       <main className="container">
-        <Noticias />
+        <Noticias noticias={noticias} />
       </main>
     </>
   )
