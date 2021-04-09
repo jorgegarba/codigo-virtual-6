@@ -1,14 +1,21 @@
 import React from 'react'
 
-const Producto = () => {
+const Producto = ({ objProducto }) => {
   return (
     <div className="card">
-      <img src="http://placehold.it/150X150" alt="" className="card-img-top" />
+      <img src={objProducto.imagen} alt=""
+        height="150"
+        className="card-img-top" />
       <div className="card-body">
-        <h5 className="card-title">Colonia Hugo Boss 150ml</h5>
-        <p className="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          eum consectetur?
+        <h5 className="card-title">{objProducto.nombre}</h5>
+        <p className="card-text">{objProducto.descripcion}</p>
+        <p className="d-flex justify-content-between">
+          <small>
+            Precio: S/. {objProducto.precio}
+          </small>
+          <small>
+            Stock: {objProducto.stock} unidades
+          </small>
         </p>
       </div>
     </div>
