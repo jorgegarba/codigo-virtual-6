@@ -3,7 +3,7 @@ import Productos from './components/Productos'
 import ProductosFilter from './components/ProductosFilter'
 import { getProductos, getProductosByTag } from "./../../services/productosService";
 
-const ProductosPage = () => {
+const ProductosPage = ({ agregarAlCarrito }) => {
 
   const [productos, setProductos] = useState([]);
   const [tag, setTag] = useState("");
@@ -43,7 +43,7 @@ const ProductosPage = () => {
             </span>
           }
 
-          <Productos productos={productos} />
+          <Productos productos={productos} agregarAlCarrito={agregarAlCarrito} />
         </div>
       </div>
     </main>

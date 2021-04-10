@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
 
-const Producto = ({ objProducto }) => {
+const Producto = ({ objProducto, agregarAlCarrito }) => {
   const history = useHistory();
   return (
     <div className="card">
@@ -20,7 +20,12 @@ const Producto = ({ objProducto }) => {
             onClick={() => {
               history.push(`/productos/${objProducto.id}`)
             }}>Ver...</button>
-          <button className="btn btn-sm btn-secondary">Agregar (+1)</button>
+          <button className="btn btn-sm btn-secondary"
+            onClick={() => {
+              agregarAlCarrito(objProducto);
+            }}>
+            Agregar (+1)
+          </button>
         </p>
 
       </div>
