@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
-const ProductosFilter = () => {
+const ProductosFilter = ({ setTag }) => {
+
+  const refInputBusqueda = useRef();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    if (refInputBusqueda.current.value.trim() !== "") {
+      setTag(refInputBusqueda.current.value.trim());
+    }
+  }
+
   return (
     <div className="card">
       <div className="card-header">
         Filtrador de Productos
       </div>
       <div className="card-body">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
-            <input type="text"
+            <input
+              ref={refInputBusqueda}
+              type="text"
               className="form-control"
               placeholder="Busca un producto" />
           </div>

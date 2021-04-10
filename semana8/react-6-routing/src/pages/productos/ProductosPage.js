@@ -8,10 +8,14 @@ const ProductosPage = () => {
   const [productos, setProductos] = useState([]);
   const [tag, setTag] = useState("");
 
-  useEffect(() => {
+  const traerProductos = () => {
     getProductos().then(rpta => {
       setProductos(rpta.data);
     })
+  }
+
+  useEffect(() => {
+    traerProductos();
   }, []);
 
   useEffect(() => {
@@ -26,9 +30,19 @@ const ProductosPage = () => {
     <main className="container-fluid">
       <div className="row">
         <div className="col-md-4">
-          <ProductosFilter />
+          <ProductosFilter setTag={setTag} />
         </div>
         <div className="col-md-8">
+          {
+            tag.length > 0 &&
+            <span className="badge bg-primary mb-3" onClick={() => {
+              traerProductos();
+              setTag("");
+            }}>
+              {tag} &times;
+            </span>
+          }
+
           <Productos productos={productos} />
         </div>
       </div>

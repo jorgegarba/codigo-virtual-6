@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
 import CarritoPage from './pages/carrito/CarritoPage';
 import HomePage from './pages/home/HomePage';
+import ProductoDetailPage from './pages/productos/ProductoDetailPage';
 import ProductosPage from './pages/productos/ProductosPage';
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         </nav>
       </header>
       <Switch>
+        <Route path="/productos/:id" component={ProductoDetailPage}/>
         <Route path="/productos" component={ProductosPage} />
         <Route path="/carrito" component={CarritoPage} />
         <Route path="/" component={HomePage} />

@@ -8,8 +8,6 @@ export const getProductos = async () => {
 }
 
 export const getProductosByTag = async (tag) => {
-
   const rpta = await axios.get(URL_BACKEND + "/productos?search=" + tag);
   return rpta;
-
 }
