@@ -13,7 +13,7 @@ const CarritoPage = ({ carrito }) => {
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Imagen</th>
-                <th>Stock</th>
+                <th>Cant.</th>
                 <th>Precio</th>
               </tr>
             </thead>
@@ -27,12 +27,17 @@ const CarritoPage = ({ carrito }) => {
                       <td>{objProducto.nombre}</td>
                       <td>{objProducto.descripcion}</td>
                       <td><img src={objProducto.imagen} alt="" width="60" /></td>
-                      <td>{objProducto.stock}</td>
+                      <td>{objProducto.cantidad}</td>
                       <td>S/ {objProducto.precio}</td>
                     </tr>
                   )
                 })
               }
+              <tr>
+                <td>Total</td>
+                <td colSpan="6">indicar el total del carrito ??????</td>
+              </tr>
+
             </tbody>
           </table>
         </div>

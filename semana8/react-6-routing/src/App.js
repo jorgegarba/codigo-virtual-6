@@ -8,10 +8,28 @@ import ProductosPage from './pages/productos/ProductosPage';
 const App = () => {
 
   const [carrito, setCarrito] = useState([]);
-  const agregarAlCarrito = (objProducto, cantidad = 1) => {
-    let carritoAntiguo = [...carrito];
-    carritoAntiguo.push(objProducto);
-    setCarrito(carritoAntiguo);
+
+  const agregarAlCarrito = (objProducto) => {
+
+    //1. hacer una copia del carrito
+    let carritoTemporal = [...carrito];
+    //2. Buscar en la copia del carrito si un producto ya existe
+    let posicion = carritoTemporal.findIndex((objProductoCarrito) => objProductoCarrito.id === objProducto.id);
+
+
+
+    if (posicion >= 0) {
+      carritoTemporal[posicion].cantidad++;
+      setCarrito(carritoTemporal);
+    } else {
+      // agregamos al carrito un nuevo producto ya que no existía en el carrito
+      carritoTemporal.push({
+        ...objProducto,
+        cantidad: 1
+      });
+      setCarrito(carritoTemporal);
+    }
+
   }
 
   return (
