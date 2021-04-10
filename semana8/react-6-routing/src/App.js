@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
-import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
+
+import {
+  Route,
+  Link,
+  Switch,
+  BrowserRouter as Router,
+  NavLink
+} from "react-router-dom";
+
 import CarritoPage from './pages/carrito/CarritoPage';
 import HomePage from './pages/home/HomePage';
 import ProductoDetailPage from './pages/productos/ProductoDetailPage';
@@ -10,7 +18,6 @@ import "react-notifications/lib/notifications.css";
 const App = () => {
 
   const [carrito, setCarrito] = useState([]);
-
   const agregarAlCarrito = (objProducto) => {
 
     //1. hacer una copia del carrito
@@ -33,14 +40,11 @@ const App = () => {
   }
 
   const eliminarProducto = id => {
-
     let carritoTemporal = [...carrito];
     let posicion = carritoTemporal.findIndex((objProducto) => objProducto.id === id)
     carritoTemporal.splice(posicion, 1);
     setCarrito(carritoTemporal);
   }
-
-
 
 
   return (
@@ -55,13 +59,13 @@ const App = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link to="/" className="nav-link">Home</Link>
+                  <NavLink to="/" className="nav-link" activeClassName="active" exact={true}>Home</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link to="/productos" className="nav-link">Productos</Link>
+                  <NavLink to="/productos" className="nav-link " activeClassName="active">Productos</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link to="/carrito" className="nav-link">Carrito ({carrito.length})</Link>
+                  <NavLink to="/carrito" className="nav-link " activeClassName="active">Carrito ({carrito.length})</NavLink>
                 </li>
               </ul>
             </div>

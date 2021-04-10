@@ -1,12 +1,10 @@
 import React from 'react'
-
+import { NotificationContainer, NotificationManager } from "react-notifications"
 const CarritoPage = ({ carrito, eliminarProducto }) => {
 
   let total = carrito.reduce((sumatoria, objProducto) => {
     return sumatoria + (objProducto.precio * objProducto.cantidad)
   }, 0);
-
-
 
   return (
     <main className="container">
@@ -40,6 +38,7 @@ const CarritoPage = ({ carrito, eliminarProducto }) => {
                       <td>
                         <button className="btn btn-danger btn-sm"
                           onClick={() => {
+                            NotificationManager.success("Eliminado!");
                             eliminarProducto(objProducto.id);
                           }}>
                           Eliminar&times;
@@ -59,6 +58,7 @@ const CarritoPage = ({ carrito, eliminarProducto }) => {
         </div>
         <div className="col-md-4"></div>
       </div>
+      <NotificationContainer />
     </main>
   )
 }
