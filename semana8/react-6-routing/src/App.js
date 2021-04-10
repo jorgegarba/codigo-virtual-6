@@ -18,7 +18,7 @@ const App = () => {
         </nav>
       </header>
       <Switch>
-        <Route path="/productos/:id" component={ProductoDetailPage}/>
+        <Route path="/productos/:productoId" component={ProductoDetailPage}/>
         <Route path="/productos" component={ProductosPage} />
         <Route path="/carrito" component={CarritoPage} />
         <Route path="/" component={HomePage} />
