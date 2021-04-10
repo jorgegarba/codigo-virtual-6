@@ -13,13 +13,49 @@ const ProductoDetailPage = (props) => {
       setObjProducto(rpta.data);
       console.log(rpta.data);
     })
-  }, [])
+  }, [productoId]);
 
 
   return (
-    <div>
-      PAGINA DE DETALLE DE UN PRODUCTO
-    </div>
+    <main className="container">
+      {
+        objProducto ? <div className="row">
+          <div className="col-md-6">
+            <figure>
+              <img src={objProducto.imagen}
+                alt="" style={{
+                  maxWidth: "100%",
+                  borderRadius: "8px"
+                }} />
+            </figure>
+          </div>
+          <div className="col-md-6">
+            <div className="card">
+              <div className="card-body">
+                <h4 className="card-title">{objProducto.nombre}</h4>
+                <p className="card-text">{objProducto.descripcion}</p>
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>Stock</th>
+                      <th>Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{objProducto.stock}</td>
+                      <td>S/ {objProducto.precio}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div> :
+          null
+      }
+
+    </main>
   )
 }
 
