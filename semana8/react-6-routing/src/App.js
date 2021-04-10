@@ -5,6 +5,8 @@ import HomePage from './pages/home/HomePage';
 import ProductoDetailPage from './pages/productos/ProductoDetailPage';
 import ProductosPage from './pages/productos/ProductosPage';
 
+import "react-notifications/lib/notifications.css";
+
 const App = () => {
 
   const [carrito, setCarrito] = useState([]);
@@ -15,8 +17,6 @@ const App = () => {
     let carritoTemporal = [...carrito];
     //2. Buscar en la copia del carrito si un producto ya existe
     let posicion = carritoTemporal.findIndex((objProductoCarrito) => objProductoCarrito.id === objProducto.id);
-
-
 
     if (posicion >= 0) {
       carritoTemporal[posicion].cantidad++;
@@ -31,6 +31,17 @@ const App = () => {
     }
 
   }
+
+  const eliminarProducto = id => {
+
+    let carritoTemporal = [...carrito];
+    let posicion = carritoTemporal.findIndex((objProducto) => objProducto.id === id)
+    carritoTemporal.splice(posicion, 1);
+    setCarrito(carritoTemporal);
+  }
+
+
+
 
   return (
     <Router>
@@ -65,7 +76,7 @@ const App = () => {
           <ProductosPage agregarAlCarrito={agregarAlCarrito} />
         </Route>
         <Route path="/carrito">
-          <CarritoPage carrito={carrito} />
+          <CarritoPage carrito={carrito} eliminarProducto={eliminarProducto} />
         </Route>
         <Route path="/" component={HomePage} />
       </Switch>

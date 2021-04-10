@@ -1,6 +1,13 @@
 import React from 'react'
 
-const CarritoPage = ({ carrito }) => {
+const CarritoPage = ({ carrito, eliminarProducto }) => {
+
+  let total = carrito.reduce((sumatoria, objProducto) => {
+    return sumatoria + (objProducto.precio * objProducto.cantidad)
+  }, 0);
+
+
+
   return (
     <main className="container">
       <div className="row">
@@ -15,6 +22,7 @@ const CarritoPage = ({ carrito }) => {
                 <th>Imagen</th>
                 <th>Cant.</th>
                 <th>Precio</th>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -29,13 +37,21 @@ const CarritoPage = ({ carrito }) => {
                       <td><img src={objProducto.imagen} alt="" width="60" /></td>
                       <td>{objProducto.cantidad}</td>
                       <td>S/ {objProducto.precio}</td>
+                      <td>
+                        <button className="btn btn-danger btn-sm"
+                          onClick={() => {
+                            eliminarProducto(objProducto.id);
+                          }}>
+                          Eliminar&times;
+                        </button>
+                      </td>
                     </tr>
                   )
                 })
               }
-              <tr>
+              <tr style={{ fontSize: "19px" }}>
                 <td>Total</td>
-                <td colSpan="6">indicar el total del carrito ??????</td>
+                <td colSpan="7" className="text-end">S/ {total.toFixed(2)}</td>
               </tr>
 
             </tbody>
