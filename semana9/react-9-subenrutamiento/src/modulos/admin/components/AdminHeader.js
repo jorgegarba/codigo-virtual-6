@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from "react-router-dom";
 
 const AdminHeader = () => {
   return (
@@ -12,16 +13,16 @@ const AdminHeader = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                <NavLink className="nav-link" to="/admin"
+                  activeClassName="active" exact>Dashboard</NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Features</a>
+                <NavLink className="nav-link" to="/admin/productos"
+                  activeClassName="active" exact>Productos</NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Pricing</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <NavLink className="nav-link" to="/admin/clientes"
+                  activeClassName="active" exact>Clientes</NavLink>
               </li>
             </ul>
           </div>

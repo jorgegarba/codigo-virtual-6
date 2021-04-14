@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route } from "react-router-dom"
 import AdminHeader from './components/AdminHeader'
 import AdminClientesPage from './pages/clientes/AdminClientesPage'
+import AdminDashboardPage from './pages/dashboard/AdminDashboardPage'
 import AdminProductosPage from './pages/productos/AdminProductosPage'
 /*PARA EL ENRUTAMIENTO INTERNO O ANIDADO
 YA NO SE NECESITA USAR EL BROWSERROUTER NUEVAMENTE, sólo el switch */
@@ -17,6 +18,10 @@ const AdminRouter = () => {
         <Route path="/admin/clientes">
           <AdminClientesPage />
         </Route>
+        <Route path="/admin">
+          <AdminDashboardPage />
+        </Route>
+
       </Switch>
     </>
   )
