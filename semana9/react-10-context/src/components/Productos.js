@@ -4,6 +4,7 @@ import ProductosContext from '../context/productosContext';
 const Productos = () => {
 
   const { listaProductos, generarProducto } = useContext(ProductosContext);
+  
 
   return (
     <div>
