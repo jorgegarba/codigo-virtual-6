@@ -1,16 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import AuthContext from '../../../context/authContext';
+import { postLogin } from '../../../servicios/authService';
+import { useHistory } from "react-router-dom";
 
 const AuthLoginPage = () => {
-
   const [formulario, setFormulario] = useState({
     correo: "",
     password: ""
   })
+  const history = useHistory();
+  const { iniciarSesionContext } = useContext(AuthContext);
+
   const handleChange = e => {
     setFormulario({
       ...formulario,
       [e.target.name]: e.target.value
     });
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    postLogin(formulario).then(rpta => {
+      if (rpta.data.ok) {
+        iniciarSesionContext(rpta.data.token);
+        history.push("/admin/dashboard")
+      }
+    })
   }
   return (
     <main className="container">
@@ -18,7 +33,7 @@ const AuthLoginPage = () => {
         <div className="col-md-4">
           <div className="card">
             <div className="card-body">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="" className="form-label">Email</label>
                   <input type="text"
@@ -36,6 +51,9 @@ const AuthLoginPage = () => {
                     onChange={handleChange}
                     value={formulario.password}
                     placeholder="pasword..." />
+                </div>
+                <div>
+                  <button type="submit">Iniciar Sesión</button>
                 </div>
               </form>
             </div>

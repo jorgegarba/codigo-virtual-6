@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Redirect, Route } from 'react-router-dom'
+import AuthContext from './context/authContext';
 
 const PrivateRoute = (props) => {
 
-  const autenticado = true;
+  const { autenticado } = useContext(AuthContext);
 
   return (
     autenticado ?
-      
+
       <Route path={props.path}>
         {props.children}
       </Route> :
