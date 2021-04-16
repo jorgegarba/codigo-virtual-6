@@ -10,6 +10,7 @@ const HomePage = () => {
           <p className="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
           <Link className="btn btn-primary" to="/admin">Ir a Admin</Link>
           <Link className="btn btn-dark" to="/cliente">Ir a Clientes</Link>
+          <Link className="btn btn-secondary" to="/auth/login">Ir a Login</Link>
         </div>
       </div>
     </main>

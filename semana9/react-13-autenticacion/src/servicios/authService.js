@@ -9,5 +9,6 @@ export const postLogin = async (objLogin) => {
       "Content-type": "application/json"
     }
   });
+  console.log(rpta);
   return rpta;
 }
