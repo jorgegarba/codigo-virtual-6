@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route } from "react-router-dom";
 import PosTerminalScreen from './pages/terminal/PosTerminalScreen';
+
 const PosRouter = () => {
   return (
     <>

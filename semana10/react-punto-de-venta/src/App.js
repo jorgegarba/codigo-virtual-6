@@ -4,6 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import "./styles/index.css"
 import PosRouter from './modules/pos/PosRouter';
 
 const App = () => {
