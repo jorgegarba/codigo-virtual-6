@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { postVerificar } from '../servicios/authService';
 import AuthContext from './authContext'
 
 const AuthState = (props) => {
@@ -28,7 +29,30 @@ const AuthState = (props) => {
 
   const iniciarSesionConLocalStorage = () => {
     if (localStorage.getItem("token")) {
-      iniciarSesionContext(localStorage.getItem("token"));
+      postVerificar(localStorage.getItem("token")).then(rpta => {
+        if (rpta.data.ok) {
+          iniciarSesionContext(localStorage.getItem("token"));
+        } else {
+          console.log("inicio de sesión fallido");
+          localStorage.removeItem("token");
+          setState({
+            autenticado: false,
+            usu_nom: null,
+            token: null,
+            cargando: false
+          });
+        }
+      }).catch(error => {
+        console.log(error);
+        console.log("INICIO FALLIDOOOOOO");
+        localStorage.removeItem("token");
+        setState({
+          autenticado: false,
+          usu_nom: null,
+          token: null,
+          cargando: false
+        });
+      })
     }
   }
 
