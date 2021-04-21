@@ -9,16 +9,13 @@ import PosRouter from './modules/pos/PosRouter';
 
 const App = () => {
   return (
+
     <Router>
-
       <Switch>
-
         <Route path="/pos">
           <PosRouter />
         </Route>
-
       </Switch>
-
     </Router>
   )
 }
