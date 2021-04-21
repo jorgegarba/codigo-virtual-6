@@ -20,6 +20,7 @@ const PosState = (props) => {
     let objPedido = pedidosActuales.find((objPedido) => objMesaGlobal.mesa_id === objPedido.mesa_id);
     if (objPedido) {
       //  Ya había un pedido para la mesa global seleccionada
+
     } else {
       // No había ningún pedido para la mesa global selecciona (es un nuevo pedido)
       pedidosActuales.push({
@@ -46,6 +47,7 @@ const PosState = (props) => {
     <PosContext.Provider value={{
       objMesaGlobal,
       objCategoriaGlobal,
+      pedidos,
       setObjMesaGlobal,
       setObjCategoriaGlobal,
       agregarPlatoContext

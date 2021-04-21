@@ -1,15 +1,15 @@
 import React from 'react'
 
-const PosBoletaItem = () => {
+const PosBoletaItem = ({ objItem }) => {
   return (
     <li className="comanda__item">
       <p className="comanda__nombre">
-        <span><strong>Arroz Chaufa de Pollo</strong></span>
-        <span>Precio: S/ 35.00</span>
+        <span><strong>{objItem.plato_nom}</strong></span>
+        <span>Precio: S/ {objItem.plato_pre}</span>
       </p>
-      <p className="comanda__cantidad">01</p>
+      <p className="comanda__cantidad">{objItem.plato_cant}</p>
       <p className="comanda__precio">
-        <strong>S/ 35.00</strong>
+        <strong>S/ {objItem.plato_cant * +objItem.plato_pre}</strong>
       </p>
     </li>
   )
