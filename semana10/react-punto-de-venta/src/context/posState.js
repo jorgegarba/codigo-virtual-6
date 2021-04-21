@@ -20,6 +20,32 @@ const PosState = (props) => {
     let objPedido = pedidosActuales.find((objPedido) => objMesaGlobal.mesa_id === objPedido.mesa_id);
     if (objPedido) {
       //  Ya había un pedido para la mesa global seleccionada
+      // Si hemos encontrado un objPedido, no implica que el plato que queremos agregar
+      // esté previamente en el arreglo de platos de dicho pedido
+      // Recorriendo el arreglo de platos para ver si encontramos un plato igual
+      // al que queremos agregar
+      let objPlatoPedido = objPedido.platos.find((objPlatoPedido) => objPlatoPedido.plato_id === objPlato.plato_id);
+
+      // si existía un plato igual al que queremos agregar?
+      if (objPlatoPedido) {
+
+      } else {
+        // es el primer plato en un pedido que ya existia en la mesa global seleccionada
+        objPedido.platos.push({
+          ...objPlato,
+          plato_cant: 1
+        });
+        //OJO: objPedido, representa a uno de los elementos del arreglo "pedidosActuales"
+        // Nosotros acabamos de modificar el "objPedido" agregándole un nuevo plato a su arreglo de
+        // "platos".
+        // Cuando "objPedido" es modificado, éste guarda la dirección de memoria del "objPedido" al que
+        // representa dentro del arreglo "pedidosActuales",
+        // Conclusión:
+        //Cuando modificamos "objPedido", internamente se modifica el "objPedido" del arreglo 
+        // "pedidosActuales", por eso, volvemos a actualizar el arreglo "pedidosActuales"
+        setPedidos(pedidosActuales);
+      }
+
 
     } else {
       // No había ningún pedido para la mesa global selecciona (es un nuevo pedido)
