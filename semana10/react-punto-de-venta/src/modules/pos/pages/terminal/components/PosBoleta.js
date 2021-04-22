@@ -1,10 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import PosContext from '../../../../../context/posContext';
+import PosModalInvoice from '../../components/PosModalInvoice';
 import PosBoletaItem from './PosBoletaItem'
+
 
 const PosBoleta = () => {
 
   const { pedidos, objMesaGlobal } = useContext(PosContext);
+  const [mostrar, setMostrar] = useState(false);
 
   let items = [];
 
@@ -45,9 +48,15 @@ const PosBoleta = () => {
             })
           }
         </ul>
-        <button className="boton boton-success boton-block">PAGAR</button>
+        <button className="boton boton-success boton-block" onClick={() => {
+          setMostrar(true);
+        }}>
+          PAGAR
+        </button>
       </div>
-    </div>
+      <PosModalInvoice mostrar={mostrar}
+        setMostrar={setMostrar} />
+    </div >
   )
 }
 

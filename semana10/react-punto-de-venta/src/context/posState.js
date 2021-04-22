@@ -44,14 +44,21 @@ const PosState = (props) => {
           } else {
             // en caso habría una unidad del plato encontrado, borrar dicho plato del arreglo
             objPedido.platos.splice(posPlatoEncontrado, 1);
+
+            // // Como quiera que acabamos de borrar un plato del pedido actual, es posible
+            // // que dicho plato sea el último o único de ese pedido, conclusión, debemos de 
+            // // borrar ese objPedido
+            if (objPedido.platos.length === 0) {
+              pedidosActuales = pedidosActuales.filter((pedido) => pedido.mesa_id !== objMesaGlobal.mesa_id);
+
+            }
+
+
             setPedidos(pedidosActuales);
           }
 
+
         }
-
-
-
-
 
       } else {
 
