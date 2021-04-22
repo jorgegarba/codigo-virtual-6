@@ -8,6 +8,7 @@ import "./styles/index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./styles/invoice.css"
 import PosRouter from './modules/pos/PosRouter';
+import AdminRouter from './modules/admin/AdminRouter';
 
 const App = () => {
   return (
@@ -16,6 +17,9 @@ const App = () => {
       <Switch>
         <Route path="/pos">
           <PosRouter />
+        </Route>
+        <Route path="/admin">
+          <AdminRouter />
         </Route>
       </Switch>
     </Router>
