@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { getMesas } from '../../../../services/mesaService';
+import { deleteMesaById, getMesas } from '../../../../services/mesaService';
 import { MDBDataTableV5 } from "mdbreact";
 import AdminModalEditarMesa from '../../components/AdminModalEditarMesa';
 import AdminModalCrearMesa from '../../components/AdminModalCrearMesa';
+import Swal from "sweetalert2";
 
 const AdminMesaScreen = () => {
 
@@ -21,6 +22,29 @@ const AdminMesaScreen = () => {
   });
   const [objMesaEditar, setObjMesaEditar] = useState(null);
 
+
+  const eliminarMesa = mesa_id => {
+    Swal.fire({
+      title: '¿Seguro que deseas eliminar la mesa?',
+      text: 'Los cambios serán irreversibles',
+      showCancelButton: true,
+      icon: 'error'
+    }).then((rpta) => {
+      if (rpta.isConfirmed) {
+        deleteMesaById(mesa_id).then(rpta => {
+          if (rpta.data.ok) {
+            Swal.fire({
+              text: 'Mesa eliminada correctamente',
+              icon: 'success',
+              timer: 1500
+            })
+            traerMesas();
+          }
+        })
+      }
+    })
+  }
+
   const traerMesas = () => {
 
     setCargando(true);
@@ -38,7 +62,9 @@ const AdminMesaScreen = () => {
                   setObjMesaEditar({ ...objMesa });
                   setMostrarModalEditar(true);
                 }}>Editar</button>
-                <button className="btn btn-danger">
+                <button className="btn btn-danger" onClick={() => {
+                  eliminarMesa(objMesa.mesa_id)
+                }}>
                   Eliminar
                 </button>
               </>

@@ -34,3 +34,8 @@ export const postMesa = async (objMesa) => {
   );
   return rpta;
 }
+
+export const deleteMesaById = async (mesa_id) => {
+  const rpta = await axios.delete(`${URL_BACKEND}/mesa/${mesa_id}`);
+  return rpta;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PosContext from './posContext'
+import { v4 as uuidv4 } from "uuid";
 
 const PosState = (props) => {
 
@@ -108,10 +109,58 @@ const PosState = (props) => {
 
   }
 
+  const pagarContext = () => {
+    // {
+    //   "pedido_fech": "string", ejm: 2020-11-05 22:01:56
+    //   "pedido_nro": "string",
+    //   "pedido_est": "string",
+    //   "usu_id": 0,
+    //   "mesa_id": 0,
+    //   "pedidoplatos": [
+    //     {
+    //       "plato_id": 0,
+    //       "peditoplato_cant": 0
+    //     }
+    //   ]
+    // }
+    let fecha = new Date();
+
+    let fechaPedido = fecha.getFullYear() + "-" +
+      (fecha.getMonth() + 1) + "-" + fecha.getDate() + " " +
+      fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds()
+
+    // encontrar el pedido del cual quiero hacer el pago
+    let objPedido = pedidos.find(objPedido => objMesaGlobal.mesa_id === objPedido.mesa_id)
+    //  armar el arreglo de platos para enviar al backend
+    let platos = objPedido.platos.map((objPlato) => {
+      return {
+        plato_id: objPlato.plato_id,
+        pedidoplato_cant: objPlato.plato_cant
+      }
+    });
+
+    let objPedidoFinal = {
+      pedido_fech: fechaPedido,
+      pedido_nro: uuidv4(),
+      pedido_est: "pagado",
+      usu_id: 1,
+      mesa_id: objMesaGlobal.mesa_id,
+      pedidoplatos: platos
+    }
+
+    console.log(objPedidoFinal);
+
+
+
+
+
+
+  }
 
 
   return (
     <PosContext.Provider value={{
+      pagarContext,
       objMesaGlobal,
       objCategoriaGlobal,
       pedidos,

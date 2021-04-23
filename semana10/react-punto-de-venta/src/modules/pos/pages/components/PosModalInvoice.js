@@ -5,7 +5,7 @@ import ReactToPrint from "react-to-print";
 
 const PosModalInvoice = ({ mostrar, setMostrar }) => {
 
-  const { pedidos, objMesaGlobal } = useContext(PosContext);
+  const { pedidos, objMesaGlobal, pagarContext } = useContext(PosContext);
 
   let objPedidoActual = pedidos.find(objPedido => objPedido.mesa_id === objMesaGlobal.mesa_id);
 
@@ -144,6 +144,9 @@ const PosModalInvoice = ({ mostrar, setMostrar }) => {
 
         </Modal.Body>
         <Modal.Footer>
+          <button className="btn btn-success btn-lg" onClick={pagarContext}>
+            PAGAR
+          </button>
           <ReactToPrint
             trigger={() => <button className="btn btn-primary btn-lg">Imprimir</button>}
             content={() => boletaRef.current} />
