@@ -40,7 +40,7 @@ const AdminPlatoScreen = () => {
         setCargando(false);
       }
     })
-  });
+  }, []);
 
 
   return (
@@ -58,7 +58,7 @@ const AdminPlatoScreen = () => {
                   <div className="alert alert-info">
                     Cargando
                   </div> :
-                  <MDBDataTableV5 data={platos} bordered hover striped/>
+                  <MDBDataTableV5 data={platos} bordered hover striped />
               }
             </div>
           </div>

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { getCategorias } from '../../../../services/categoriaService';
-import { postPlato } from '../../../../services/platoService';
+import { postPlato, postUploadImagenByPlatoId } from '../../../../services/platoService';
 
 const AdminPlatoCrearScreen = () => {
 
@@ -13,13 +13,16 @@ const AdminPlatoCrearScreen = () => {
 
   const [categorias, setCategorias] = useState([]);
 
+  const imagenRef = useRef();
+
+
   useEffect(() => {
     getCategorias().then(rpta => {
       if (rpta.data.ok) {
         setCategorias(rpta.data.content);
       }
     })
-  })
+  }, [])
 
 
   const handleChange = e => {
@@ -31,8 +34,14 @@ const AdminPlatoCrearScreen = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     postPlato(formulario).then(rpta => {
-      console.log(rpta.data);
+      if (rpta.data.ok) {
+        postUploadImagenByPlatoId(imagenRef.current.files[0], rpta.data.content.plato_id)
+          .then((rpta2) => {
+            console.log(rpta2);
+          })
+      }
     })
   }
 
@@ -76,6 +85,10 @@ const AdminPlatoCrearScreen = () => {
                       })
                     }
                   </select>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="">Imagen</label>
+                  <input type="file" ref={imagenRef} accept="image/*" />
                 </div>
                 <div className="form-group">
                   <button className="btn btn-primary" type="submit">

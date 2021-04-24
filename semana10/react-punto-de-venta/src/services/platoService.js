@@ -18,3 +18,22 @@ export const postPlato = async (objPlato) => {
   );
   return rpta;
 }
+
+export const postUploadImagenByPlatoId = async (file, plato_id) => {
+
+  let miFormData = new FormData();
+  miFormData.append("imagen", file);
+  miFormData.append("plato_id", plato_id);
+
+  const rpta = await axios.post(
+    `${URL_BACKEND}/plato/imagen/upload`,
+    miFormData,
+    {
+      headers: {
+        "Content-type": "multipart/form-data"
+      }
+    }
+  );
+  return rpta;
+
+}
