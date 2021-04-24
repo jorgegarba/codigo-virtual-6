@@ -1,6 +1,8 @@
 import { MDBDataTableV5 } from 'mdbreact';
 import React, { useEffect, useState } from 'react'
 import { getPlatos } from '../../../../services/platoService';
+import { Link } from "react-router-dom"
+// import { withRouter } from "react-router-dom"
 
 
 
@@ -18,8 +20,12 @@ const platosInicial = {
 
 
 const AdminPlatoScreen = () => {
+
   const [cargando, setCargando] = useState(true);
   const [platos, setPlatos] = useState(platosInicial);
+
+
+
 
   useEffect(() => {
     getPlatos().then(rpta => {
@@ -49,9 +55,9 @@ const AdminPlatoScreen = () => {
         <div className="col">
           <div className="card shadow">
             <div className="card-body">
-              <button className="btn btn-primary" onClick={() => {
-
-              }}>Crear Plato</button>
+              <Link className="btn btn-primary" to="/admin/plato/crear">
+                Crear Plato
+              </Link>
               <hr />
               {
                 cargando ?
@@ -68,4 +74,5 @@ const AdminPlatoScreen = () => {
   )
 }
 
+// export default withRouter(AdminPlatoScreen)
 export default AdminPlatoScreen

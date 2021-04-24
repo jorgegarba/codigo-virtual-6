@@ -7,7 +7,7 @@ const PosModalInvoice = ({ mostrar, setMostrar }) => {
 
   const { pedidos, objMesaGlobal, pagarContext } = useContext(PosContext);
 
-  let objPedidoActual = pedidos.find(objPedido => objPedido.mesa_id === objMesaGlobal.mesa_id);
+  let objPedidoActual = pedidos.find(objPedido => objPedido.mesa_id === objMesaGlobal?.mesa_id);
 
   const boletaRef = useRef();
 
@@ -78,7 +78,7 @@ const PosModalInvoice = ({ mostrar, setMostrar }) => {
                         {
                           objPedidoActual.platos.map((objPlato, i) => {
                             return (
-                              <tr>
+                              <tr key={objPlato.plato_id}>
                                 <td>{i + 1}</td>
                                 <td>{objPlato.plato_cant}</td>
                                 <td>{objPlato.plato_nom}</td>

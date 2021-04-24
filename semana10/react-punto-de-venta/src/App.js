@@ -7,22 +7,30 @@ import {
 import "./styles/index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./styles/invoice.css"
+import "./styles/login.css"
+
 import PosRouter from './modules/pos/PosRouter';
 import AdminRouter from './modules/admin/AdminRouter';
+import AuthRouter from './modules/auth/AuthRouter';
+import AuthState from './context/authState';
 
 const App = () => {
   return (
-
-    <Router>
-      <Switch>
-        <Route path="/pos">
-          <PosRouter />
-        </Route>
-        <Route path="/admin">
-          <AdminRouter />
-        </Route>
-      </Switch>
-    </Router>
+    <AuthState>
+      <Router>
+        <Switch>
+          <Route path="/pos">
+            <PosRouter />
+          </Route>
+          <Route path="/admin">
+            <AdminRouter />
+          </Route>
+          <Route path="/auth">
+            <AuthRouter />
+          </Route>
+        </Switch>
+      </Router>
+    </AuthState>
   )
 }
 
