@@ -13,24 +13,25 @@ import PosRouter from './modules/pos/PosRouter';
 import AdminRouter from './modules/admin/AdminRouter';
 import AuthRouter from './modules/auth/AuthRouter';
 import AuthState from './context/authState';
+import PrivateRoute from './PrivateRoute';
 
 const App = () => {
   return (
-    <AuthState>
-      <Router>
+    <Router>
+      <AuthState>
         <Switch>
-          <Route path="/pos">
+          <PrivateRoute path="/pos">
             <PosRouter />
-          </Route>
-          <Route path="/admin">
+          </PrivateRoute>
+          <PrivateRoute path="/admin">
             <AdminRouter />
-          </Route>
+          </PrivateRoute>
           <Route path="/auth">
             <AuthRouter />
           </Route>
         </Switch>
-      </Router>
-    </AuthState>
+      </AuthState>
+    </Router>
   )
 }
 

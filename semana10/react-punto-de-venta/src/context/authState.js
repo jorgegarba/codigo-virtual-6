@@ -1,6 +1,8 @@
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import AuthContext from './authContext'
 import { authReducer } from './authReducer'
+import { withRouter } from "react-router-dom"
+import { postVerificar } from '../services/authService'
 
 const initialState = {
   autenticado: false,
@@ -15,6 +17,7 @@ const AuthState = (props) => {
 
   const [state, setState] = useReducer(authReducer, initialState);
 
+  console.log(props);
 
   const iniciarSesionContext = (token) => {
 
@@ -22,6 +25,7 @@ const AuthState = (props) => {
     let payloadString = token.split(".")[1];
     let payloadStringDecript = atob(payloadString);
     let payloadJson = JSON.parse(payloadStringDecript);
+
     setState(
       {
         action: "INICIAR_SESION",
@@ -35,21 +39,53 @@ const AuthState = (props) => {
       }
     )
 
+
+
   }
+
+  const iniciarSesionConLocalStorage = () => {
+
+    let token = localStorage.getItem("token");
+    if (token) {
+      postVerificar(token).then(rpta => {
+        if (rpta.data.ok) {
+          iniciarSesionContext(token)
+        }
+      }).catch(error => {
+        console.log(error);
+        cerrarSesion();
+      })
+    } else {
+      cerrarSesion();
+    }
+
+
+  }
+
+  useEffect(() => {
+    iniciarSesionConLocalStorage();
+  }, [])
+
+
   const cerrarSesion = () => {
     setState({
       action: "CERRAR_SESION"
     })
+    //props.history.replace("ruta"), similar al "push"
+    // pero no deja historial de las páginas visitaras anteriormente
+    // para no hacer un "atrás!"
+    props.history.replace("/");
   }
 
 
   return (
     <AuthContext.Provider value={{
-      iniciarSesionContext
+      iniciarSesionContext,
+      ...state
     }}>
       {props.children}
     </AuthContext.Provider>
   )
 }
 
-export default AuthState
+export default withRouter(AuthState)
