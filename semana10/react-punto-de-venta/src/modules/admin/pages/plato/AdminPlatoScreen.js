@@ -58,7 +58,7 @@ const AdminPlatoScreen = () => {
                   <div className="alert alert-info">
                     Cargando
                   </div> :
-                  <MDBDataTableV5 data={platos} />
+                  <MDBDataTableV5 data={platos} bordered hover striped/>
               }
             </div>
           </div>

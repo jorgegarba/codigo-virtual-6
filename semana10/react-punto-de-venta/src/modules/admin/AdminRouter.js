@@ -5,6 +5,7 @@ import {
 } from "react-router-dom"
 import AdminHeader from './components/AdminHeader'
 import AdminMesaScreen from './pages/mesa/AdminMesaScreen'
+import AdminPlatoCrearScreen from './pages/plato/AdminPlatoCrearScreen'
 import AdminPlatoScreen from './pages/plato/AdminPlatoScreen'
 
 const AdminRouter = () => {
@@ -15,7 +16,10 @@ const AdminRouter = () => {
         <Route path="/admin/mesa">
           <AdminMesaScreen />
         </Route>
-        <Route path="/admin/plato">
+        <Route path="/admin/plato/crear" >
+          <AdminPlatoCrearScreen />
+        </Route>
+        <Route path="/admin/plato" >
           <AdminPlatoScreen />
         </Route>
       </Switch>
