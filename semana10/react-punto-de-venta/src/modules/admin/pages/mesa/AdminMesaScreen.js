@@ -46,9 +46,7 @@ const AdminMesaScreen = () => {
   }
 
   const traerMesas = () => {
-
     setCargando(true);
-
     getMesas().then(rpta => {
       if (rpta.data.ok) {
         let mesasFormateadas = rpta.data.content.map((objMesa, i) => {
@@ -82,6 +80,7 @@ const AdminMesaScreen = () => {
 
   useEffect(() => {
     traerMesas();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 

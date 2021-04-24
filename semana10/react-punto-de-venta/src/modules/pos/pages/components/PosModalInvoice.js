@@ -144,7 +144,13 @@ const PosModalInvoice = ({ mostrar, setMostrar }) => {
 
         </Modal.Body>
         <Modal.Footer>
-          <button className="btn btn-success btn-lg" onClick={pagarContext}>
+          <button className="btn btn-success btn-lg" onClick={() => {
+            pagarContext().then(rpta => {
+              if (rpta) {
+                setMostrar(false);
+              }
+            })
+          }}>
             PAGAR
           </button>
           <ReactToPrint

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import PosContext from './posContext'
 import { v4 as uuidv4 } from "uuid";
+import { postPedido } from '../services/pedidoService';
 
 const PosState = (props) => {
 
@@ -109,7 +110,7 @@ const PosState = (props) => {
 
   }
 
-  const pagarContext = () => {
+  const pagarContext = async () => {
     // {
     //   "pedido_fech": "string", ejm: 2020-11-05 22:01:56
     //   "pedido_nro": "string",
@@ -143,7 +144,7 @@ const PosState = (props) => {
       pedido_fech: fechaPedido,
       pedido_nro: uuidv4(),
       pedido_est: "pagado",
-      usu_id: 1,
+      usu_id: 2,
       mesa_id: objMesaGlobal.mesa_id,
       pedidoplatos: platos
     }
@@ -152,6 +153,16 @@ const PosState = (props) => {
 
 
 
+
+    const rpta = await postPedido(objPedidoFinal);
+
+    if (rpta.data.ok) {
+      // borrar el pedido de la mesa actual
+      let pedidosRestantes = pedidos.filter(objPedido => objPedido.mesa_id !== objMesaGlobal.mesa_id);
+      setPedidos([...pedidosRestantes]);
+      setObjMesaGlobal(null);
+      return true;
+    }
 
 
 
