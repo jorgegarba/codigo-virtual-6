@@ -14,7 +14,8 @@ export const authReducer = (stateAntiguo, payload) => {
       cargando: false,
       usu_nom: null,
       token: null,
-      usu_id: null
+      usu_id: null,
+      usu_tipo: null
     }
 
   }

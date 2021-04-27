@@ -4,7 +4,7 @@ import AuthContext from './context/authContext'
 
 const PrivateRoute = (props) => {
 
-  const { autenticado, cargando } = useContext(AuthContext)
+  const { autenticado, cargando, usu_tipo } = useContext(AuthContext)
 
   return (
 
@@ -13,10 +13,16 @@ const PrivateRoute = (props) => {
         Cargando joven...
       </div> :
       autenticado ?
-        <Route path={props.path}>
-          {props.children}
-        </Route> :
 
+        usu_tipo === "admin" && props.path.startsWith("/admin") ||
+          usu_tipo === "ventas" && props.path.startsWith("/pos") ?
+
+          <Route path={props.path}>
+            {props.children}
+          </Route> :
+
+          < Redirect to={"/"} />
+        :
         <Redirect to={"/"} />
   )
 }

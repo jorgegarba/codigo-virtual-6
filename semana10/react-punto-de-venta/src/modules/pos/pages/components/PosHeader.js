@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import AuthContext from '../../../../context/authContext';
 
 const PosHeader = () => {
+
+  const { usu_nom, cerrarSesion } = useContext(AuthContext);
+
+
   return (
     <header className="header">
       <div className="header__logo">
@@ -12,7 +17,13 @@ const PosHeader = () => {
       </div>
       <div className="header__usuario">
         <img src="https://randomuser.me/api/portraits/men/90.jpg" alt="" />
-        <span>Jorge Garnica</span>
+        <span>{usu_nom}</span>
+        <button className="btn btn-danger" onClick={() => {
+          cerrarSesion();
+          // 
+        }}>
+          Cerrar Sesión
+        </button>
       </div>
     </header>
   )

@@ -9,7 +9,8 @@ const initialState = {
   cargando: true,
   token: null,
   usu_nom: null,
-  usu_id: null
+  usu_id: null,
+  usu_tipo: null
 }
 
 
@@ -34,7 +35,8 @@ const AuthState = (props) => {
           cargando: false,
           token: token,
           usu_nom: payloadJson.usu_nom,
-          usu_id: payloadJson.usu_id
+          usu_id: payloadJson.usu_id,
+          usu_tipo: payloadJson.usu_tipo
         }
       }
     )
@@ -74,13 +76,14 @@ const AuthState = (props) => {
     //props.history.replace("ruta"), similar al "push"
     // pero no deja historial de las páginas visitaras anteriormente
     // para no hacer un "atrás!"
-    props.history.replace("/");
+    // props.history.replace("/");
   }
 
 
   return (
     <AuthContext.Provider value={{
       iniciarSesionContext,
+      cerrarSesion,
       ...state
     }}>
       {props.children}
