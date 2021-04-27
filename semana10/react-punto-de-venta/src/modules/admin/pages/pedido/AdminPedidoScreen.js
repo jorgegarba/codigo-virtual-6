@@ -28,17 +28,15 @@ const AdminPedidoScreen = () => {
           return {
             ...objPedido,
             posicion: i + 1,
-            mesa_nro: objPedido.Mesa.mesa_nro,
-            usu_nombre: objPedido.Usuario.usu_nom + " " + objPedido.Usuario.usu_ape,
-            // acciones: <button>Ver Detalles</button>
+            mesa_nro: objPedido.Mesa?.mesa_nro || "s/n",
+            usu_nombre: (objPedido.Usuario?.usu_nom || "") + " " + (objPedido.Usuario?.usu_ape || ""),
+            acciones: <button>Ver Detalles</button>
           }
         });
-        
         console.log(filas);
-        // setPedidos(rpta.data.pedidos);
-        setDatos({ ...datos, rows: filas })
+        setPedidos(rpta.data.pedidos);
+        setDatos({ ...datos, rows: [...filas] })
         setCargando(false);
-
       } else {
         setCargando(false);
       }
