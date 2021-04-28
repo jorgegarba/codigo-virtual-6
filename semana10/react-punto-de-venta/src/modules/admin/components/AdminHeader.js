@@ -12,6 +12,7 @@ const AdminHeader = () => {
           <NavLink to="/admin" className="nav-link" activeClassName={"active"} exact>Dashboard</NavLink>
           <NavLink to="/admin/mesa" className="nav-link" activeClassName={"active"} exact>Mesas</NavLink>
           <NavLink to="/admin/plato" className="nav-link" activeClassName={"active"} exact>Platos</NavLink>
+          <NavLink to="/admin/pedido" className="nav-link" activeClassName={"active"} exact>Pedidos</NavLink>
 
         </Nav>
         <Form inline>

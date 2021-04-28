@@ -22,6 +22,7 @@ const AdminMesaScreen = () => {
   });
   const [objMesaEditar, setObjMesaEditar] = useState(null);
 
+  const [mounted, setMounted] = useState(true);
 
   const eliminarMesa = mesa_id => {
     Swal.fire({
@@ -68,18 +69,23 @@ const AdminMesaScreen = () => {
               </>
           }
         })
-        setMesas({
-          ...mesas,
-          rows: mesasFormateadas
-        })
-        setCargando(false);
+
+        if (mounted) {
+          setMesas({ ...mesas, rows: mesasFormateadas })
+          setCargando(false);
+        }
 
       }
     })
   }
 
   useEffect(() => {
+
     traerMesas();
+
+    return () => {
+      setMounted(false);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

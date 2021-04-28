@@ -28,24 +28,32 @@ const AdminPlatoScreen = () => {
 
 
   useEffect(() => {
+    let mounted = true;
+
     getPlatos().then(rpta => {
       if (rpta.data.ok) {
-        setPlatos({
-          ...platosInicial,
-          rows: rpta.data.content.map((objPlato, i) => {
-            return {
-              posicion: i + 1,
-              plato_id: objPlato.plato_id,
-              plato_nom: objPlato.plato_nom,
-              plato_img: <img src={objPlato.plato_img} width="100" />,
-              plato_pre: `S/ ${(+objPlato.plato_pre).toFixed(2)}`,
-              categoria_nom: objPlato.Categorium?.categoria_nom || "Sin categoria"
-            }
-          })
-        });
-        setCargando(false);
+        if (mounted) {
+          setPlatos({
+            ...platosInicial,
+            rows: rpta.data.content.map((objPlato, i) => {
+              return {
+                posicion: i + 1,
+                plato_id: objPlato.plato_id,
+                plato_nom: objPlato.plato_nom,
+                plato_img: <img src={objPlato.plato_img} width="100" />,
+                plato_pre: `S/ ${(+objPlato.plato_pre).toFixed(2)}`,
+                categoria_nom: objPlato.Categorium?.categoria_nom || "Sin categoria"
+              }
+            })
+          });
+          setCargando(false);
+        }
       }
     })
+
+    return () => {
+      mounted = false
+    }
   }, []);
 
 
